@@ -34,6 +34,7 @@ Executar Testes:
 npm test
 Executa os testes definidos no seu projeto.
 
+
 Instalar Dependências de Desenvolvimento:
 npm install --save-dev nome-da-dependencia-dev
 Instala uma dependência de desenvolvimento no seu projeto React.
