@@ -1,0 +1,51 @@
+Em React, eventos são ações ou ocorrências que podem ser detectadas e manipuladas durante a interação do usuário com a interface da aplicação. Esses eventos podem ser desde cliques do mouse até teclas pressionadas, mudanças em campos de formulários, entre outros. A manipulação de eventos em React é semelhante à manipulação de eventos em HTML, mas com algumas diferenças importantes.
+
+Aqui estão os principais conceitos relacionados a eventos em React:
+
+Sintaxe de Eventos em JSX:
+Em React, os eventos são nomeados usando camelCase, em vez de minúsculas como no HTML tradicional. Por exemplo, em vez de usar onclick, você usaria onClick.
+
+Os eventos são atributos em JSX, e o valor do atributo é a função que será chamada quando o evento ocorrer.
+
+<button onClick={handleClick}>Clique em mim</button>
+
+
+
+Tratadores de Eventos (Event Handlers):
+Um tratador de evento é uma função que é executada quando o evento ocorre.
+O tratador de evento é definido como uma função no componente React.
+
+
+function handleClick() {
+  console.log('Botão clicado!');
+}
+
+Passagem de Parâmetros para Tratadores de Eventos:
+Se você precisar passar parâmetros para o tratador de eventos, é comum usar uma função de callback para evitar que o tratador de eventos seja chamado imediatamente durante a renderização.
+
+<button onClick={() => handleClickWithParams('param1', 'param2')}>Clique com parâmetros</button>
+
+Objeto de Evento (e):
+O tratador de eventos pode receber um objeto de evento como argumento, com informações sobre o evento, como coordenadas do mouse, teclas pressionadas, etc.
+
+function handleMouseMove(event) {
+  console.log(`Coordenadas do mouse: ${event.clientX}, ${event.clientY}`);
+}
+
+Prevenção de Comportamento Padrão:
+Para evitar o comportamento padrão de um evento (como enviar um formulário ao clicar em um botão de envio), você pode chamar o método preventDefault() no objeto de evento.
+
+function handleSubmit(event) {
+  event.preventDefault();
+  console.log('Formulário enviado!');
+}
+
+Estado e Eventos Assíncronos:
+Lembre-se de que o setState em React pode ser assíncrono. Se você precisar acessar o estado atualizado após uma atualização, pode fornecer uma função como argumento para o setState.
+
+// Exemplo usando o estado anterior
+function incrementCounter() {
+  setCounter((prevCounter) => prevCounter + 1);
+}
+
+Estes são alguns conceitos fundamentais relacionados a eventos em React. Manipular eventos é crucial para criar interfaces interativas e responsivas em aplicações React.
