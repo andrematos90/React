@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import FirstComponent from './components/FirstComponent';
+import Challenge02 from './components/Challenge2';
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h3>Desafio React!</h3>
       </header>
-      <FirstComponent/>
+     <Challenge02></Challenge02>
     </div>
   );
 }
