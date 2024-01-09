@@ -1,0 +1,5 @@
+Pode-se definir uma função diretamente no local do evento. Isso é útil quando a lógica é simples ou específica ao contexto. Não é uma boa prática para funções mais complexas.
+
+// No componente renderizado
+<button onClick={() => console.log('Botão clicado!')}>Clique em mim</button>
+No entanto, tenha em mente que, se a função definida no local criar uma nova referência a cada renderização, pode afetar o desempenho em componentes mais complexos.
