@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import FirstComponent from './components/FirstComponent';
 
 function App() {
   return (
@@ -8,8 +9,11 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h3>Desafio React!</h3>
       </header>
+      <FirstComponent/>
     </div>
   );
 }
+
+
 
 export default App;
