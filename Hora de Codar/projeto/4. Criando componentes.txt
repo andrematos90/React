@@ -1,0 +1,53 @@
+Passo 01:
+Dentro da pasta do seu projeto, crie uma pasta "componentes" e um  novo arquivo para o seu componente. Vamos chamá-lo de Saudacao.js ou Saudacao.jsx.
+
+
+// Saudacao.js
+import React from 'react';
+
+class Saudacao extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Olá, Mundo!</h1>
+      </div>
+    );
+  }
+}
+
+export default Saudacao;
+
+Passo 02: Use o novo componente
+
+Agora, você pode usar o componente em seu arquivo src/App.js. Importe o componente e adicione-o ao componente funcional App.
+
+
+// App.js
+import React from 'react';
+import Saudacao from './Saudacao';
+
+function App() {
+  return (
+    <div>
+      <Saudacao />
+    </div>
+  );
+}
+
+export default App;
+
+Passo 5: Execute o aplicativo
+
+No terminal, execute o seguinte comando para iniciar o servidor de desenvolvimento:
+
+npm start
+
+Isso abrirá automaticamente o aplicativo no seu navegador padrão. Você deve ver a saudação "Olá, Mundo!" renderizada na página.
+
+Esses são os passos básicos para criar um componente React. À medida que você se torna mais familiarizado com o React, pode explorar conceitos mais avançados, como props, state, component lifecycle, e hooks.
+
+
+
+
+
+
