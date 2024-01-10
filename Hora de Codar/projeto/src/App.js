@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import FirstComponent from './components/FirstComponent';
-import MyComponent from './components/MyComponent';
+import Events from './components/events';
 
 function App() {
   return (
@@ -10,8 +9,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
        
       </header>
-      <MyComponent></MyComponent>
-     <FirstComponent></FirstComponent>
+      <Events></Events>
     </div>
   );
 }
