@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import TemplateExpressions from './components/TemplateExpressions';
+import FirstComponent from './components/FirstComponent';
+import MyComponent from './components/MyComponent';
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
        
       </header>
-     <TemplateExpressions></TemplateExpressions>
+      <MyComponent></MyComponent>
+     <FirstComponent></FirstComponent>
     </div>
   );
 }
