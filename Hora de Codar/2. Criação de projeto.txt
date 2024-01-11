@@ -1,6 +1,6 @@
 criação de projeto com o npx
 
-comando: npx create-react-app
+comando: npx create-react-app nome do projeto
 
 criação de projeto com o vite
 comnando:
