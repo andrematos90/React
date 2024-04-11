@@ -1,0 +1,45 @@
+Criar um novo aplicativo React:
+npx create-react-app nome-do-seu-app
+Este comando cria uma nova aplicação React no diretório especificado.
+
+Navegar para o Diretório do Projeto:
+cd nome-do-seu-app
+Use este comando para mudar para o diretório do seu projeto React.
+
+Iniciar o Servidor de Desenvolvimento:
+npm start
+Inicia o servidor de desenvolvimento e abre o aplicativo no navegador.
+
+Instalar uma Dependência:
+npm install nome-da-dependencia
+Instala uma nova dependência no seu projeto React.
+
+Criar um Componente Funcional:
+touch NomeDoComponente.js
+Cria um novo arquivo para um componente funcional React.
+
+Criar um Componente de Classe:
+touch NomeDoComponente.js
+Cria um novo arquivo para um componente de classe React.
+
+Criar um Novo Projeto React TypeScript:
+npx create-react-app nome-do-seu-app --template typescript
+Cria um novo projeto React usando TypeScript.
+
+Build para Produção:
+npm run build
+Gera uma versão otimizada para produção do seu aplicativo React.
+
+Executar Testes:
+npm test
+Executa os testes definidos no seu projeto.
+
+
+Instalar Dependências de Desenvolvimento:
+npm install --save-dev nome-da-dependencia-dev
+Instala uma dependência de desenvolvimento no seu projeto React.
+
+
+Rodar projeto: npm start
+
+Rodar projeto com o vite: npm run dev

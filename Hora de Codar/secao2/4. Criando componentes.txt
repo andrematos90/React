@@ -1,0 +1,33 @@
+Passo 01:
+Dentro da pasta do seu projeto, crie uma pasta "componentes" e um  novo arquivo para o seu componente. Vamos chamá-lo de Saudacao.js ou Saudacao.jsx.
+
+
+// FirstComponent.js
+import React from 'react';
+
+class FirstComponent extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Meu primeiro componente</h1>
+      </div>
+    );
+  }
+}
+
+
+ou com arrow function:
+const FirstComponent = () =>{
+    return (
+        <div>
+            <h1>Meu primeiro Componente</h1>
+        </div>
+    )
+}
+
+export default FirstComponent;
+
+
+
+
+
