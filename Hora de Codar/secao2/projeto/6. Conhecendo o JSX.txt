@@ -1,0 +1,28 @@
+JSX é uma extensão de sintaxe para JavaScript que permite escrever código HTML dentro do JavaScript. No contexto do React, JSX é comumente usado para descrever a estrutura do componente React de uma forma que se assemelha muito a escrever HTML, mas com a capacidade total do JavaScript.
+
+Por exemplo, no React, em vez de criar elementos usando métodos JavaScript como createElement, você pode usar JSX para descrever a estrutura do componente de forma mais declarativa e intuitiva.
+
+Aqui está um exemplo simples:
+
+import React from 'react';
+
+class MeuComponente extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Meu Componente</h1>
+        <p>Este é um exemplo de JSX no React!</p>
+      </div>
+    );
+  }
+}
+
+Neste exemplo, o código dentro do método render() parece muito com HTML, mas é realmente JSX. Quando o código é transpilado, o compilador Babel (ou outro transpilador configurado) converte esse código JSX em chamadas JavaScript regulares que o React pode entender.
+
+Portanto, o JSX é uma maneira conveniente e expressiva de descrever a interface do usuário em aplicativos React, tornando o código mais legível e fácil de entender. Ele também permite que você misture lógica JavaScript dentro do código de marcação, tornando mais fácil trabalhar com dados dinâmicos e renderizar conteúdo dinamicamente.
+
+
+
+
+
+
