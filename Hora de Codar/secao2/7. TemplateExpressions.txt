@@ -1,0 +1,20 @@
+Em React, as template expressions são partes do código JSX que permitem a interpolação de valores JavaScript em um componente React. Elas são usadas dentro de chaves {} em JSX e permitem que você insira expressões JavaScript dentro do código JSX.
+
+Por exemplo, considere o seguinte componente React:
+
+import React from 'react';
+
+function Greeting(props) {
+  return (
+    <div>
+      <h1>Hello, {props.name}!</h1>
+      <p>Today is {new Date().toLocaleDateString()}.</p>
+    </div>
+  );
+}
+
+export default Greeting;
+
+Neste exemplo, {props.name} é uma template expression que insere o valor da propriedade name passada para o componente Greeting. Da mesma forma, {new Date().toLocaleDateString()} é uma template expression que insere a data atual formatada.
+
+As template expressions são uma maneira poderosa de criar componentes React dinâmicos, permitindo que você incorpore lógica JavaScript diretamente no JSX para renderizar conteúdo dinâmico com base em dados ou estados.
