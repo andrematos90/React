@@ -5,6 +5,7 @@ import './app.css'
 //componentes//
 import FirstComponent from './components/FirstComponent'   
 import TemplateExpressions from './components/TemplateExpressions';
+import Componentepai from './components/ComponentePai';
 
 export function App() {
 
@@ -14,6 +15,8 @@ export function App() {
     <h1>Componente principal</h1>
     <FirstComponent/>
     <TemplateExpressions/>
+    <Componentepai/>
+    
     
    </div>
   )
