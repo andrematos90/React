@@ -1,0 +1,8 @@
+
+Hierarquia Aninhada: A hierarquia de componentes em React pode ser aninhada em múltiplos níveis. Isso significa que um componente filho pode conter seus próprios componentes filhos, formando uma estrutura de árvore complexa.
+
+Reutilização e Composição: A hierarquia de componentes permite a reutilização de código e a composição de interfaces de usuário complexas a partir de componentes mais simples. Componentes menores podem ser compostos para formar componentes maiores, facilitando a manutenção e a organização do código.
+
+Componentes Funcionais e de Classe: Tanto os componentes funcionais quanto os de classe podem ser usados na hierarquia de componentes. Com a introdução dos Hooks em React, os componentes funcionais agora podem ter estado e efeitos, tornando-os uma escolha popular para muitos casos de uso.
+
+Em resumo, a hierarquia de componentes em React é uma abordagem poderosa para construir interfaces de usuário modulares e reutilizáveis, permitindo a organização e a comunicação eficazes entre os diferentes componentes que compõem a aplicação.
