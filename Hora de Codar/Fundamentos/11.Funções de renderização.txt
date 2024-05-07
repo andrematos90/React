@@ -1,0 +1,28 @@
+
+As funções de renderização no React são funções que retornam elementos React (ou JSX) que descrevem a interface do usuário. Elas são usadas para criar componentes React e definir como eles devem ser exibidos na interface do usuário.
+
+Em termos mais específicos, as funções de renderização são aquelas que definem o que um componente renderiza com base em seu estado e/ou propriedades. No React, os componentes são essencialmente funções que retornam elementos React, e esses elementos são renderizados no DOM para criar a interface do usuário.
+
+Por exemplo, em um componente React simples, você pode ter uma função de renderização que retorna um elemento <div> com algum conteúdo dentro:
+
+
+import React from 'react';
+
+function MeuComponente() {
+  return (
+    <div>
+      <h1>Olá, Mundo!</h1>
+      <p>Este é um exemplo de componente React.</p>
+    </div>
+  );
+}
+
+export default MeuComponente;
+Neste exemplo, a função MeuComponente é uma função de renderização que retorna um elemento <div> com um título <h1> e um parágrafo <p>.
+
+No React, sempre que o estado ou as propriedades de um componente mudam, o React chama a função de renderização associada ao componente para atualizar a interface do usuário com base no novo estado ou propriedades. Isso permite que os componentes reajam dinamicamente a mudanças de dados e forneçam uma experiência de usuário interativa e responsiva.
+
+
+
+
+
