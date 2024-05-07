@@ -1,0 +1,4 @@
+A pasta public pode ser utilizada para colocar imagens, porém
+um padrão bastante utilizado para as imagens dos projetos é colocá-las
+na pasta assests, em src;
+em assets é necessário importar as imagens, e o src dinamico com o nome de importação.
