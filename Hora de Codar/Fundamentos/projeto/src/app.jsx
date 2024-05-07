@@ -8,6 +8,7 @@ import TemplateExpression from './components/TemplateExpressions'
 import ParentComponent from './components/ParentComponent'
 import Events from './components/Events'
 import FuncaoDeRenderizacao from './components/FuncaoDeRenderizacao'
+import Challenge from './components/Challenge'
 
 
 export function App() {
@@ -24,6 +25,7 @@ export function App() {
       <ParentComponent></ParentComponent>
       <Events></Events>
       <FuncaoDeRenderizacao></FuncaoDeRenderizacao>
+      <Challenge></Challenge>
     </div>
     
     
