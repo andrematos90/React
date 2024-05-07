@@ -1,0 +1,3 @@
+Quando as funções são simples, podemos realizar a lógica no próprio evento;
+Isso torna o código mas "complicado", por trazer lógica com HTML;
+Mas em algumas situações é aplicável.
