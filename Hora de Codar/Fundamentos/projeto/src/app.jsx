@@ -5,6 +5,7 @@ import './app.css'
 //componentes//
 import FirstComponent from './components/FirstComponent'
 import TemplateExpression from './components/TemplateExpressions'
+import ParentComponent from './components/ParentComponent'
 
 
 export function App() {
@@ -18,6 +19,7 @@ export function App() {
     <div className='components'>
       <FirstComponent></FirstComponent>
       <TemplateExpression></TemplateExpression>
+      <ParentComponent></ParentComponent>
     </div>
     
     
