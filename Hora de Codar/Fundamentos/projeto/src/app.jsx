@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import './app.css'
 //componentes//
 import FirstComponent from './components/FirstComponent'
+import TemplateExpression from './components/TemplateExpressions'
+
 
 export function App() {
 
@@ -15,6 +17,7 @@ export function App() {
 
     <div className='components'>
       <FirstComponent></FirstComponent>
+      <TemplateExpression></TemplateExpression>
     </div>
     
     
