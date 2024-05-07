@@ -3,12 +3,15 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+
 }
 
 .english {
   color: #363636;
+  margin-bottom: 300px;
 }
 
 .portuguese {
-  color: #D3D3D3;
+  color: #363636;
+  margin-top: 300px;
 }
