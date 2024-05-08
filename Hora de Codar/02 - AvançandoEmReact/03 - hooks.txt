@@ -1,0 +1,21 @@
+Em React, "hooks" são funções especiais que permitem que você use o estado e outros recursos do React em componentes funcionais. Antes dos hooks, os componentes funcionais eram limitados em termos de funcionalidade, pois não podiam conter estado interno nem usar métodos de ciclo de vida. Os hooks foram introduzidos na versão 16.8 do React para permitir que os desenvolvedores usem recursos como estado, ciclo de vida e contexto em componentes funcionais, sem a necessidade de converter esses componentes em classes.
+
+Os hooks mais comuns incluem:
+
+useState: Permite adicionar estado a componentes funcionais.
+useEffect: Permite realizar operações lado efeitos em componentes funcionais, substituindo os métodos de ciclo de vida das classes.
+useContext: Permite acessar o contexto do React em componentes funcionais.
+useReducer: Oferece uma alternativa ao useState para gerenciar estado complexo.
+useCallback e useMemo: Otimizações de desempenho para evitar a recriação de funções e valores computados em cada renderização.
+Esses hooks (e outros) permitem que os componentes funcionais sejam mais poderosos e expressivos, tornando a experiência de desenvolvimento em React mais simples e eficiente.
+
+
+o que são componentes funcionais?
+
+Componentes funcionais são uma das formas de definir componentes em React. Eles são simples funções JavaScript que aceitam props (propriedades) como argumento e retornam elementos React que descrevem o que deve ser renderizado na interface do usuário.
+
+Antes do advento dos hooks, os componentes funcionais eram principalmente utilizados para componentes simples, que não precisavam de estado interno nem de métodos de ciclo de vida. Eles eram mais fáceis de escrever e entender do que os componentes baseados em classes.
+
+Com a introdução dos hooks no React, os componentes funcionais ganharam mais poder, permitindo-lhes usar recursos como estado, efeitos colaterais e contexto, tornando-os uma escolha mais robusta para o desenvolvimento de aplicativos complexos.
+
+Em resumo, os componentes funcionais são uma maneira simples e eficiente de definir a interface do usuário em React, e com os hooks, eles se tornaram ainda mais poderosos e flexíveis.
