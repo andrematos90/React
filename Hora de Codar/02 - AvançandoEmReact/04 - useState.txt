@@ -1,0 +1,29 @@
+O useState é um dos hooks mais fundamentais em React. Ele permite que você adicione estado a componentes funcionais. Antes da introdução dos hooks, apenas os componentes baseados em classes podiam ter estado interno. Com o useState, agora você pode ter estado em componentes funcionais, o que simplifica muito o desenvolvimento.
+
+Aqui está como você usa o useState:
+
+import React, { useState } from 'react';
+
+function Example() {
+  // Chamando o useState para adicionar estado ao componente
+  const [count, setCount] = useState(0);
+
+  // "count" é a variável de estado que armazena o valor atual do estado
+  // "setCount" é uma função que permite atualizar esse estado
+
+  return (
+    <div>
+      <p>Você clicou {count} vezes</p>
+      <button onClick={() => setCount(count + 1)}>Clique aqui</button>
+    </div>
+  );
+}
+
+Aqui está uma explicação detalhada:
+
+Importando o Hook: Primeiro, você importa o hook useState de 'react'. Isso permite que você o use em seu componente.
+Chamando o Hook: Dentro do componente funcional, você chama o useState e passa o valor inicial do estado como argumento. No exemplo acima, useState(0) define o estado inicial como 0.
+Desestruturação do Array Retornado: O useState retorna um array com duas posições: o valor atual do estado e uma função para atualizar esse estado. Você desestrutura esse array em duas constantes, count e setCount, respectivamente. count armazena o valor atual do estado, e setCount é uma função que você usa para atualizar esse valor.
+Utilizando o Estado: Agora você pode usar count em seu componente para acessar o valor atual do estado. Por exemplo, {count} renderiza o valor atual do estado em seu componente.
+Atualizando o Estado: Você usa a função setCount para atualizar o estado. No exemplo acima, quando o botão é clicado, o estado é atualizado adicionando 1 ao valor atual do estado.
+O useState é extremamente útil para adicionar estado a componentes funcionais em React, permitindo que você crie componentes interativos e dinâmicos de forma mais simples e eficiente.
