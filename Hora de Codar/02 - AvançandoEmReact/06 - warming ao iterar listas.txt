@@ -1,0 +1,64 @@
+react_jsx-dev-runtime.js?v=0805f3cc:62 Warning: Each child in a list should have a unique "key" prop.
+
+Check the render method of `ListRender`. See https://reactjs.org/link/warning-keys for more information.
+    at li
+    at ListRender (http://localhost:5173/src/components/ListRender.jsx:21:18)
+    at div
+    at div
+    at App
+
+
+
+esse warning ocorre pq sem a propriedade key o react precisa de uma chave única em cada im dos itens iterados;
+
+
+
+usando o indice do map:
+
+import React, { useState } from 'react'
+
+const ListRender = () => {
+
+    const [list] = useState(["Gol", "Civic", "Malibu", "Twingo", "Fusca"]);
+  return (
+    <div>
+        <ul>
+            {list.map((item, i)=>(
+                <li key={i}>{item}</li>
+            ))}
+        </ul>
+    </div>
+  )
+}
+
+export default ListRender
+
+
+
+adicionando chave unica (recomendado):
+
+
+import React, { useState } from "react";
+
+const ListRender = () => {
+
+  const [users] = useState([
+    { id: 1, name: "andré", age: 34 },
+    { id: 3, name: "lordao", age: 40 },
+    { id: 5, name: "lauro antigo", age: 51 },
+  ]);
+
+  return (
+    <div>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            {user.name} - {user.age}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default ListRender;
