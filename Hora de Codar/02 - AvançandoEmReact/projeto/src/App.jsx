@@ -3,6 +3,7 @@ import './App.css';
 import BandeiraSantaCatarina from '../src/assets/Bandeira Santa Catarina.png';
 import ManageData from './components/ManageData';
 import ListRender from './components/ListRender';
+import PreviousState from './components/PreviousState';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
     <div>
       <ManageData></ManageData>
       <ListRender></ListRender>
+      <PreviousState></PreviousState>
     </div>
     </div>
        

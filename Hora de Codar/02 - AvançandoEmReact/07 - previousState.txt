@@ -1,0 +1,30 @@
+Em React, prevState (estado anterior) é um conceito importante que se refere ao estado anterior de um componente antes de uma atualização de estado ocorrer. Ele é frequentemente usado em conjunto com funções de atualização de estado para garantir que as atualizações de estado sejam feitas com base no estado mais recente.
+
+Quando você atualiza o estado de um componente em React usando o método useState ou o método de atualização de estado em um componente de classe, o React não garante que a atualização do estado seja imediata. Em vez disso, ele agrupa múltiplas atualizações de estado em uma única atualização para otimização de desempenho. Isso significa que você não pode confiar no valor atual do estado dentro do mesmo ciclo de renderização após chamar uma função de atualização de estado.
+
+Para lidar com isso, o React permite que você passe uma função para a função de atualização de estado em vez de um valor direto. Esta função receberá o estado anterior como seu argumento e retornará o novo estado com base nesse estado anterior. Assim, você pode garantir que está atualizando o estado com base no estado mais recente.
+
+Por exemplo, em um componente funcional usando useState, você pode fazer algo assim:
+
+
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  function increment() {
+    // Usando prevState para garantir que estamos atualizando com base no estado anterior
+    setCount(prevState => prevState + 1);
+  }
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+
+export default Counter;
+
+Neste exemplo, prevState (o estado anterior) é representado pelo argumento passado para a função que atualiza o estado (setCount). Usar prevState garante que você está atualizando o estado com base no valor mais recente do estado, evitando problemas de sincronização de estado. Isso é especialmente útil em casos onde várias atualizações de estado podem ocorrer de forma assíncrona.
