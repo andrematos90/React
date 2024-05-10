@@ -1,0 +1,27 @@
+Em React, um fragment é uma maneira de agrupar vários elementos filhos sem criar um nó extra no DOM. Quando você está renderizando vários elementos adjacentes em um componente React, geralmente você precisa envolvê-los em um único elemento pai. Tradicionalmente, isso seria feito com um elemento <div> ou outro contêiner.
+
+No entanto, em alguns casos, como quando você está criando um componente reutilizável que precisa renderizar uma lista de itens sem um contêiner adicional, ou quando você está renderizando elementos adjacentes em uma estrutura de renderização condicional, o contêiner adicional pode prejudicar a estrutura do DOM ou a semântica do seu código.
+
+Os fragments resolvem esse problema, permitindo que você agrupe elementos filhos sem adicionar um nó extra ao DOM. Eles são úteis para manter uma estrutura de código limpa e evitar adicionar elementos desnecessários ao DOM.
+
+Em termos de sintaxe, um fragment em React é representado pela tag <React.Fragment> ou por uma sintaxe mais curta usando a notação <> (também conhecida como fragment syntax). Aqui está um exemplo:
+
+
+import React from 'react';
+
+function ListaDeItens() {
+  return (
+    <>
+      <h1>Lista de Itens</h1>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </>
+  );
+}
+
+export default ListaDeItens;
+
+Neste exemplo, os elementos <h1> e <ul> estão sendo envolvidos em um fragment usando a notação <>. Isso permite que eles sejam renderizados como irmãos sem a necessidade de um contêiner extra no DOM.

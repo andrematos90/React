@@ -4,6 +4,7 @@ import BandeiraSantaCatarina from '../src/assets/Bandeira Santa Catarina.png';
 import ManageData from './components/ManageData';
 import ListRender from './components/ListRender';
 import PreviousState from './components/PreviousState';
+import  Fragment  from './components/Fragment';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <ManageData></ManageData>
       <ListRender></ListRender>
       <PreviousState></PreviousState>
+      <Fragment propFragment="teste"></Fragment>
     </div>
     </div>
        
