@@ -1,0 +1,47 @@
+ é possível passar funções como props em React. Isso é uma prática comum e muito útil para criar componentes reutilizáveis e interativos. Aqui está um exemplo de como você pode fazer isso:
+
+
+// Componente Filho
+function Filho({ minhaFuncao }) {
+  return (
+    <div>
+      <h2>Componente Filho</h2>
+      <button onClick={minhaFuncao}>Clique aqui</button>
+    </div>
+  );
+}
+
+// Utilização do Componente Filho no Componente Pai (App)
+function App() {
+  // Função a ser passada como prop
+  function minhaFuncao() {
+    alert('Função passada como prop!');
+  }
+
+  return (
+    <div>
+      <Filho minhaFuncao={minhaFuncao} />
+    </div>
+  );
+}
+
+No exemplo acima, o componente Filho recebe uma função chamada minhaFuncao como propriedade e a utiliza como um manipulador de evento para o evento de clique do botão. Quando o botão é clicado, a função minhaFuncao é chamada.
+
+Passar funções como props é uma maneira poderosa de permitir que os componentes filhos interajam com o componente pai e vice-versa. Isso é útil para criar componentes mais flexíveis e reutilizáveis, onde diferentes partes da interface do usuário podem responder a eventos ou realizar ações específicas.
+
+
+
+import React from 'react'
+
+const ExecuteFunction = ({myFunction}) => {
+  return (
+    <>
+    <button onClick={myFunction}>ApresentarMSG</button>
+    </>
+  )
+}
+
+export default ExecuteFunction
+
+
+Resumindo, este componente React funcional ExecuteFunction é uma maneira de criar um botão que, quando clicado, executa uma função específica que é passada para ele como uma propriedade chamada myFunction. Isso torna o componente flexível e reutilizável, permitindo que ele seja usado em diferentes partes de um aplicativo React.

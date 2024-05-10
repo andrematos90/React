@@ -6,9 +6,14 @@ import ListRender from './components/ListRender';
 import PreviousState from './components/PreviousState';
 import  Fragment  from './components/Fragment';
 import Container from './components/Container';
+import ExecuteFunction from './components/ExecuteFunction';
 
 
 function App() {
+
+  function showMessage(){
+    console.log("Evento do componente pai");
+  }
   
   return (
     
@@ -29,6 +34,7 @@ function App() {
       <Container myValue="valor passado como prop">
         <p>Conteudo enviado para o componentes através de children prop</p>
       </Container>
+      <ExecuteFunction myFunction={showMessage}/>
     </div>
     </div>
        
