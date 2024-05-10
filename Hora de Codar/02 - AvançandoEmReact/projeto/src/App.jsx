@@ -5,6 +5,7 @@ import ManageData from './components/ManageData';
 import ListRender from './components/ListRender';
 import PreviousState from './components/PreviousState';
 import  Fragment  from './components/Fragment';
+import Container from './components/Container';
 
 
 function App() {
@@ -21,10 +22,13 @@ function App() {
 
     </div>
     <div>
-      <ManageData></ManageData>
-      <ListRender></ListRender>
-      <PreviousState></PreviousState>
-      <Fragment propFragment="teste"></Fragment>
+      <ManageData/>
+      <ListRender/>
+      <PreviousState/>
+      <Fragment propFragment="teste"/>
+      <Container myValue="valor passado como prop">
+        <p>Conteudo enviado para o componentes através de children prop</p>
+      </Container>
     </div>
     </div>
        

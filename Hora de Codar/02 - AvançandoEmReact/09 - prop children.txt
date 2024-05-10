@@ -1,0 +1,25 @@
+Em React, "props" (abreviação de "properties" ou "propriedades") são utilizadas para passar dados de um componente pai para um componente filho. Quando falamos sobre "prop children" (propriedade children), estamos nos referindo a uma maneira de passar componentes filhos diretamente como propriedades para um componente pai.
+
+Por exemplo, considere um componente Pai que pode renderizar um ou mais componentes filhos dentro dele. Podemos passar esses componentes filhos para o componente pai utilizando a propriedade children.
+
+// Componente Pai
+function Pai({ children }) {
+  return (
+    <div className="container">
+      <h1>Componente Pai</h1>
+      {children}
+    </div>
+  );
+}
+
+// Utilização do Componente Pai
+function App() {
+  return (
+    <Pai>
+      <p>Este é um componente filho.</p>
+      <button>Outro componente filho</button>
+    </Pai>
+  );
+}
+
+No exemplo acima, o componente Pai recebe os componentes filhos através da propriedade children e os renderiza dentro de sua própria estrutura. Isso oferece uma maneira flexível de compor componentes em React, permitindo que você crie componentes mais genéricos e reutilizáveis.
