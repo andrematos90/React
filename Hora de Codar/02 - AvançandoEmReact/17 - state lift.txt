@@ -1,0 +1,43 @@
+O termo "state lift" em React geralmente se refere a uma técnica em que o estado (state) é "elevado" de um componente filho para um componente pai, a fim de compartilhar dados entre componentes. Isso é comum em situações em que vários componentes precisam acessar e modificar os mesmos dados.
+
+Por exemplo, digamos que você tenha uma aplicação com vários componentes que precisam acessar e modificar o mesmo estado. Em vez de manter esse estado em um componente específico e passar os dados por meio de props (que podem se tornar inconvenientes em uma árvore grande de componentes), você pode "elevar" esse estado para um componente pai comum a todos os componentes que precisam acessá-lo.
+
+Aqui está um exemplo simples:
+
+Suponha que você tenha três componentes: Parent, ChildA e ChildB. Ambos ChildA e ChildB precisam acessar e modificar o mesmo estado. Em vez de manter o estado em ChildA ou ChildB, você pode colocá-lo em Parent e passar as funções de atualização de estado como props para os componentes filhos. Dessa forma, Parent age como um "controlador" para o estado compartilhado.
+
+
+import React, { useState } from 'react';
+
+function Parent() {
+  const [sharedState, setSharedState] = useState('');
+
+  return (
+    <div>
+      <ChildA sharedState={sharedState} setSharedState={setSharedState} />
+      <ChildB sharedState={sharedState} setSharedState={setSharedState} />
+    </div>
+  );
+}
+
+function ChildA({ sharedState, setSharedState }) {
+  return (
+    <div>
+      <input
+        type="text"
+        value={sharedState}
+        onChange={(e) => setSharedState(e.target.value)}
+      />
+    </div>
+  );
+}
+
+function ChildB({ sharedState, setSharedState }) {
+  return (
+    <div>
+      <p>Shared State: {sharedState}</p>
+    </div>
+  );
+}
+
+Neste exemplo, Parent detém o estado sharedState, e passa tanto o estado quanto a função para atualizá-lo para ChildA e ChildB. Quando o estado é atualizado em um componente filho, a mudança é refletida em todos os componentes que compartilham esse estado, graças à "elevação" do estado para o componente pai.

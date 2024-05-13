@@ -1,0 +1,84 @@
+A renderização condicional em React refere-se à técnica de decidir se um componente deve ou não ser renderizado com base em certas condições. Isso permite que você controle dinamicamente o que é exibido na interface do usuário com base em diferentes estados ou propriedades do aplicativo.
+
+Existem várias maneiras de realizar renderização condicional em React:
+
+Operador Ternário
+
+return (
+  <div>
+    {isLoggedIn ? <LogoutButton /> : <LoginButton />}
+  </div>
+);
+
+Neste exemplo, se isLoggedIn for verdadeiro, <LogoutButton /> será renderizado; caso contrário, <LoginButton /> será renderizado.
+
+
+
+
+Operador lógico && (Short-circuit evaluation)
+
+return (
+  <div>
+    {isLoggedIn && <LogoutButton />}
+  </div>
+);
+
+Neste exemplo, <LogoutButton /> será renderizado somente se isLoggedIn for verdadeiro.
+
+
+
+
+
+If-Else em Componente JavaScript
+
+return (
+  <div>
+    {isLoggedIn ? (
+      <LogoutButton />
+    ) : (
+      <LoginButton />
+    )}
+  </div>
+);
+
+Neste caso, o operador ternário é substituído por uma declaração if-else dentro das chaves {}.
+
+
+
+
+Renderização com base no estado do componente
+
+return (
+  <div>
+    {this.state.isLoading ? (
+      <Spinner />
+    ) : (
+      <Content />
+    )}
+  </div>
+);
+
+Aqui, o componente decide renderizar um spinner ou o conteúdo com base no estado interno isLoading.
+
+
+
+
+Utilizando função de renderização condicional
+
+function renderContent(isLoggedIn) {
+  if (isLoggedIn) {
+    return <LogoutButton />;
+  } else {
+    return <LoginButton />;
+  }
+}
+
+return (
+  <div>
+    {renderContent(isLoggedIn)}
+  </div>
+);
+
+Isso é útil quando a lógica de renderização se torna complexa e você deseja modularizá-la em uma função separada.
+
+Renderização condicional é uma técnica poderosa em React que permite criar interfaces dinâmicas e responsivas com base em diferentes estados e propriedades da aplicação.

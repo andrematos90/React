@@ -7,6 +7,7 @@ import PreviousState from './components/PreviousState';
 import  Fragment  from './components/Fragment';
 import Container from './components/Container';
 import ExecuteFunction from './components/ExecuteFunction';
+import ConditionalRender from './components/ConditionalRender';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <ManageData/>
       <ListRender/>
       <PreviousState/>
+      <ConditionalRender/>
       <Fragment propFragment="teste"/>
       <Container myValue="valor passado como prop">
         <p>Conteudo enviado para o componentes através de children prop</p>
