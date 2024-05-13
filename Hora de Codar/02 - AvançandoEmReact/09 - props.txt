@@ -1,0 +1,22 @@
+
+Em React, "props" é uma abreviação de "propriedades" (properties). As props são uma forma de passar dados de um componente pai para um componente filho na hierarquia de componentes do React. Elas são passadas como atributos nos elementos JSX e são acessíveis no componente filho como parâmetros da função do componente.
+
+As props são usadas para enviar dados de um componente para outro, permitindo a criação de componentes reutilizáveis e compostos. Aqui está um exemplo simples:
+
+
+// Componente pai
+function ParentComponent() {
+  return <ChildComponent name="John" />;
+}
+
+// Componente filho
+function ChildComponent(props) {
+  return <p>Hello, {props.name}!</p>;
+}
+
+
+Neste exemplo, name é uma propriedade passada para ChildComponent como um atributo. Dentro de ChildComponent, a propriedade é acessada como props.name para renderizar "Hello, John!".
+
+As props são imutáveis, o que significa que um componente filho não pode modificar suas próprias props. Elas são usadas principalmente para transmitir dados do componente pai para o componente filho, embora possam ser usadas para outros fins também, como configurar comportamentos ou estilos condicionais com base em props específicas.
+
+As props podem conter qualquer tipo de dado suportado por JavaScript, incluindo strings, números, objetos, arrays, funções e até mesmo outros componentes React. Isso permite uma grande flexibilidade na composição de componentes e na passagem de dados dentro de uma aplicação React.

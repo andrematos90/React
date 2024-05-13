@@ -8,6 +8,7 @@ import  Fragment  from './components/Fragment';
 import Container from './components/Container';
 import ExecuteFunction from './components/ExecuteFunction';
 import ConditionalRender from './components/ConditionalRender';
+import ShowUserName from './components/ShowUserName';
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
   function showMessage(){
     console.log("Evento do componente pai");
   }
+
+  const userName = "André"
   
   return (
     
@@ -32,6 +35,7 @@ function App() {
       <ListRender/>
       <PreviousState/>
       <ConditionalRender/>
+      <ShowUserName userName = {userName} />
       <Fragment propFragment="teste"/>
       <Container myValue="valor passado como prop">
         <p>Conteudo enviado para o componentes através de children prop</p>
