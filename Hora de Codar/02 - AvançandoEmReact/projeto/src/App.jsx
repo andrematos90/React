@@ -37,7 +37,10 @@ function App() {
       <PreviousState/>
       <ConditionalRender/>
       <ShowUserName userName = {userName} />
-      <CarDetails brand = "VW" model = "Fusca" age={1985} />
+      <CarDetails brand = "VW" model = "Fusca" age={1985} newCar = {false}/>
+      {/*Reaproveitando componente CarDetails8*/}
+      <CarDetails brand = "Renault" model = "Twingo" age={2001} newCar = {false}/>
+      <CarDetails brand = "Citroen" model = "C5" age= {2012} newCar = {true}/>
       <Fragment propFragment="teste"/>
       <Container myValue="valor passado como prop">
         <p>Conteudo enviado para o componentes através de children prop</p>

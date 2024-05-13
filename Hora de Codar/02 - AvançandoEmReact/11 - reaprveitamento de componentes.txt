@@ -1,0 +1,18 @@
+
+Em React, o reaproveitamento de componentes é uma prática fundamental que visa a criação de componentes modulares e reutilizáveis. Isso é alcançado através da criação de componentes independentes que podem ser usados em várias partes de uma aplicação.
+
+Aqui estão algumas maneiras de reutilizar componentes em React:
+
+Componentização: Dividir a interface do usuário em componentes menores e mais gerenciáveis, cada um responsável por uma única função ou parte da interface.
+
+Props (Propriedades): Os componentes podem aceitar argumentos chamados props, que são passados de um componente pai para um componente filho. Isso permite que você personalize a aparência ou o comportamento de um componente com base nas necessidades específicas de cada contexto em que é usado.
+
+Composição: Você pode compor componentes maiores a partir de componentes menores. Por exemplo, você pode ter um componente de lista que utiliza um componente de item de lista. Isso promove a reutilização e a modularidade.
+
+HOCs (Higher-Order Components): São funções que recebem um componente e retornam um novo componente com funcionalidades adicionadas. Isso é útil para adicionar lógica compartilhada entre vários componentes.
+
+Render Props: É uma técnica em que um componente passa uma função para seu filho como propriedade. Esse filho, por sua vez, chama a função fornecida com algum argumento, fornecendo assim dados ou funcionalidades específicas ao componente pai.
+
+Hooks: Os hooks são funções especiais do React que permitem adicionar funcionalidades de state e ciclo de vida a componentes funcionais. Eles ajudam a reutilizar lógica de estado e efeitos em componentes funcionais sem a necessidade de criar classes.
+
+Ao utilizar essas técnicas de reutilização de componentes, você pode construir interfaces de usuário mais limpas, modulares e fáceis de manter em suas aplicações React.
