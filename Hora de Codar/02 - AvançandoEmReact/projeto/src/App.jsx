@@ -9,6 +9,7 @@ import Container from './components/Container';
 import ExecuteFunction from './components/ExecuteFunction';
 import ConditionalRender from './components/ConditionalRender';
 import ShowUserName from './components/ShowUserName';
+import CarDetails from './components/CarDetails';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
   }
 
   const userName = "André"
-  
+
   return (
     
     <div>
@@ -36,11 +37,13 @@ function App() {
       <PreviousState/>
       <ConditionalRender/>
       <ShowUserName userName = {userName} />
+      <CarDetails brand = "VW" model = "Fusca" age={1985} />
       <Fragment propFragment="teste"/>
       <Container myValue="valor passado como prop">
         <p>Conteudo enviado para o componentes através de children prop</p>
       </Container>
       <ExecuteFunction myFunction={showMessage}/>
+
     </div>
     </div>
        

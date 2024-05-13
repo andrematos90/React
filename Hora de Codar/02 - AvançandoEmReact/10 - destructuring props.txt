@@ -1,0 +1,32 @@
+ destructuring em props é uma técnica em JavaScript e em React que permite extrair valores específicos de um objeto passado como argumento para uma função ou componente. No contexto de React, isso é frequentemente usado para extrair valores das props de um componente de forma mais concisa e legível.
+
+Vamos dar uma olhada em um exemplo simples:
+
+function MyComponent(props) {
+  const { name, age } = props;
+
+  return (
+    <div>
+      <p>Name: {name}</p>
+      <p>Age: {age}</p>
+    </div>
+  );
+}
+
+Neste exemplo, estamos utilizando o destructuring para extrair os valores name e age das props do componente. Isso nos permite acessar diretamente esses valores em vez de usar props.name e props.age repetidamente.
+
+Você também pode fazer o destructuring diretamente na lista de argumentos da função:
+
+
+function MyComponent({ name, age }) {
+  return (
+    <div>
+      <p>Name: {name}</p>
+      <p>Age: {age}</p>
+    </div>
+  );
+}
+
+Esta forma é mais compacta e faz a mesma coisa que o exemplo anterior, mas de uma maneira mais concisa.
+
+O destructuring em props é uma prática comum em React, pois torna o código mais limpo e legível, especialmente em componentes que recebem várias props. Ele também pode ajudar a evitar a repetição de props no código e facilita a compreensão da estrutura de dados passada para o componente.
