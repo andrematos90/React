@@ -13,6 +13,7 @@ import CarDetails from './components/CarDetails';
 import { useState } from 'react';
 import Message from './components/Message';
 import ChangeMessageState from './components/ChangeMessageState';
+import AnimalDetails  from './components/AnimalDetails';
 
 
 function App() {
@@ -28,6 +29,13 @@ function App() {
   {id : 2, brand : "Chevrolet", model : "Malibu", age : 2010, newCar : true},
   {id : 3, brand : "VW", model : "Gol", age : 2008, newCar : false},
   {id: 4, brand : "Honda", model : "Civic", age : 2008, newCar : true}
+  ]
+
+  const animals = [
+    {id : 1, name : "Binho", especie : "cachorro", idade : 3},
+    {id : 2, name : "Milu", especie : "cachorro", idade : 7},
+    {id : 3, name : "Luna", especie : "cachorro", idade : 1},
+    {id : 4, name : "Gatão", especie : "gato", idade : 3},
   ]
 
   const[message, setMessage ] = useState("");
@@ -84,6 +92,11 @@ function App() {
       {/*state lift */}
       <Message msg={message}></Message>
       <ChangeMessageState handleMessage={handleMessage}/>
+
+      {/*desafio*/}
+      {animals.map((animals) =>(
+        <AnimalDetails name={animals.name} especie={animals.especie} idade={animals.idade} key={animals.id}/>
+      ))}
 
     </div>
     </div>
