@@ -7,7 +7,12 @@ function App() {
 
   return (
     <>
+
+    <h1>CSS no React</h1>
+
      <p>meu componente App.jsx</p>
+
+     <p style={{color: 'green', backgroundColor: 'black'}}>a estilizção dessa tag é inline</p>
 
      <MyComponent/>
     </>
