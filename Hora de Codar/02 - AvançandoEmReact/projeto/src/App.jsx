@@ -21,10 +21,10 @@ function App() {
   const userName = "André"
 
   const cars = [
-  {brand : "Renault", model : "Clio", age : 1980, newCar : false},
-  {brand : "Chevrolet", model : "Malibu", age : 2010, newCar : true},
-  {brand : "VW", model : "Gol", age : 2008, newCar : false},
-  {brand : "Honda", model : "Civic", age : 2008, newCar : true}
+  {id : 1, brand : "Renault", model : "Clio", age : 1980, newCar : false},
+  {id : 2, brand : "Chevrolet", model : "Malibu", age : 2010, newCar : true},
+  {id : 3, brand : "VW", model : "Gol", age : 2008, newCar : false},
+  {id: 4, brand : "Honda", model : "Civic", age : 2008, newCar : true}
   ]
 
   return (
@@ -49,15 +49,15 @@ function App() {
 
       <ShowUserName userName = {userName} />
 
-      <CarDetails brand = "VW" model = "Fusca" age={1985} newCar = {false}/>
+      <CarDetails brand = "VW" model = "Fusca" age={1985} newCar = {false} />
 
       {/*Reaproveitando componente CarDetails8*/}
-      <CarDetails brand = "Renault" model = "Twingo" age={2001} newCar = {false}/>
-      <CarDetails brand = "Citroen" model = "C5" age= {2012} newCar = {true}/>
+      <CarDetails brand = "Renault" model = "Twingo" age={2001} newCar = {false} />
+      <CarDetails brand = "Citroen" model = "C5" age= {2012} newCar = {true} />
 
       {/*loop em componente com array de objetos */}
       {cars.map((car) =>(
-        <CarDetails brand={car.brand} color={car.model} age={car.age} newCar={car.newCar}/>
+        <CarDetails brand={car.brand} color={car.model} age={car.age} newCar={car.newCar} key={car.id}/>
       ))}
       
       {/*fragment*/}
@@ -68,6 +68,8 @@ function App() {
         <p>este é o conteudo</p>
       </Container>
 
+      
+      {/*função como prop */}
       <ExecuteFunction myFunction={showMessage}/>
 
     </div>
