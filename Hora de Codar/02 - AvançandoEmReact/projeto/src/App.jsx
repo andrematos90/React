@@ -40,11 +40,17 @@ function App() {
     </div>
     <div>
       <ManageData/>
+
       <ListRender/>
+
       <PreviousState/>
+      
       <ConditionalRender/>
+
       <ShowUserName userName = {userName} />
+
       <CarDetails brand = "VW" model = "Fusca" age={1985} newCar = {false}/>
+
       {/*Reaproveitando componente CarDetails8*/}
       <CarDetails brand = "Renault" model = "Twingo" age={2001} newCar = {false}/>
       <CarDetails brand = "Citroen" model = "C5" age= {2012} newCar = {true}/>
@@ -54,10 +60,14 @@ function App() {
         <CarDetails brand={car.brand} color={car.model} age={car.age} newCar={car.newCar}/>
       ))}
       
+      {/*fragment*/}
       <Fragment propFragment="teste"/>
+
+      {/*prop children*/}
       <Container myValue="valor passado como prop">
-        <p>Conteudo enviado para o componentes através de children prop</p>
+        <p>este é o conteudo</p>
       </Container>
+
       <ExecuteFunction myFunction={showMessage}/>
 
     </div>
