@@ -1,0 +1,21 @@
+O CSS global em um projeto React refere-se ao estilo CSS que é aplicado a todos os elementos em todas as partes do seu aplicativo. Isso é diferente do CSS modular, onde estilos são encapsulados em componentes individuais e aplicados apenas a esses componentes específicos.
+
+Há várias maneiras de incluir CSS global em um projeto React:
+
+Arquivo CSS global: Você pode criar um arquivo CSS separado que contém estilos globais e importá-lo no seu arquivo HTML principal. Por exemplo:
+
+
+<!-- index.html -->
+<link rel="stylesheet" href="styles.css" />
+O arquivo styles.css pode conter estilos que se aplicam globalmente a todos os elementos no seu aplicativo.
+
+CSS no arquivo de entrada (como index.js ou App.js): Você também pode incluir estilos CSS diretamente em um arquivo JavaScript, que será aplicado globalmente. Isso pode ser feito usando a sintaxe import ou require para importar um arquivo CSS:
+
+
+// index.js
+import './styles.css';
+Styled-components ou Emotion: Ferramentas como styled-components ou Emotion permitem definir estilos diretamente dentro dos componentes React, mas esses estilos podem ser aplicados globalmente se necessário.
+
+Folhas de estilo globais em módulos CSS: Em vez de um arquivo CSS global, você pode criar um módulo CSS que contém estilos globais e importá-lo onde for necessário.
+
+Independentemente do método escolhido, o CSS global pode ser útil para aplicar estilos que se aplicam a todos os componentes ou para definir estilos para elementos HTML padrão (como <body>, <p>, <h1>, etc.) que serão usados em todo o seu aplicativo. No entanto, você deve ter cuidado ao usar CSS global, pois pode levar a conflitos de estilo e dificultar a manutenção do código à medida que o aplicativo cresce.
