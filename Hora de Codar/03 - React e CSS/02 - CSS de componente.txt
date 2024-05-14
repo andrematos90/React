@@ -1,0 +1,39 @@
+CSS de componente, também conhecido como CSS modular, é uma abordagem para estilizar componentes individuais em um aplicativo React. Em vez de usar estilos CSS globais que se aplicam a todos os elementos na página, você define estilos específicos para cada componente, encapsulando-os dentro do próprio componente.
+
+Aqui estão alguns conceitos chave sobre CSS de componente:
+
+Encapsulamento: Com CSS de componente, os estilos são encapsulados dentro do próprio componente. Isso significa que os estilos definidos em um componente não afetarão outros componentes, mesmo que usem os mesmos nomes de classe ou seletores.
+
+Escopo local: Cada arquivo de estilo CSS é geralmente associado a um único componente. Isso cria um escopo local para os estilos, garantindo que não haja vazamento de estilos para outros componentes.
+
+Facilidade de manutenção: Ao manter os estilos diretamente junto com o código do componente, torna-se mais fácil entender e manter os estilos associados a esse componente específico. Isso é especialmente útil em projetos grandes, onde pode haver muitos componentes e estilos.
+
+Reutilização: Mesmo que os estilos sejam definidos localmente para um componente específico, ainda é possível reutilizar estilos comuns em vários componentes usando técnicas como a composição de classes ou a herança de estilos.
+
+Existem algumas maneiras de implementar o CSS de componente em um projeto React:
+
+Arquivos CSS separados: Cada componente tem seu próprio arquivo CSS correspondente. Os estilos são importados diretamente no arquivo do componente usando import './Component.css'.
+
+Módulos CSS: Você pode usar a convenção de arquivos CSS module, onde os estilos são tratados como módulos e importados usando a sintaxe de importação do JavaScript. Os nomes de classe são automaticamente escopados localmente para evitar conflitos.
+
+Styled-components ou Emotion: Essas bibliotecas permitem definir estilos diretamente dentro dos componentes React usando JavaScript. Isso pode ser útil para criar componentes altamente encapsulados e reutilizáveis.
+
+No geral, o CSS de componente é uma prática recomendada para o desenvolvimento de aplicativos React, pois promove a modularidade, facilita a manutenção e reduz a probabilidade de erros de estilo.
+
+
+Na prática, em um sistema bem configurado com CSS de componente, vazamentos para outros componentes são muito improváveis. No entanto, existem cenários em que isso pode acontecer:
+
+Nomes de classe comuns: Se você usar nomes de classe genéricos ou muito comuns em seus estilos, pode haver conflitos com outros componentes que também usam esses mesmos nomes de classe. Isso pode resultar em estilos indesejados sendo aplicados a componentes que não deveriam compartilhá-los.
+
+Estilos globais: Mesmo que você esteja usando CSS de componente, ainda é possível definir estilos globais que afetam todos os componentes. Se esses estilos globais não forem cuidadosamente gerenciados, eles podem interferir nos estilos dos seus componentes.
+
+Bibliotecas de terceiros: Se você estiver utilizando bibliotecas de terceiros que não seguem a prática de CSS de componente ou que aplicam estilos globalmente, pode haver conflitos de estilos com os seus próprios componentes.
+
+Erros de configuração: Se a configuração do seu ambiente de desenvolvimento não estiver correta, os estilos podem não ser devidamente encapsulados e vazamentos podem ocorrer.
+
+Para mitigar esses problemas, é importante seguir boas práticas ao definir seus estilos:
+
+Use nomes de classe únicos e descritivos para evitar conflitos.
+Evite estilos globais sempre que possível. Se necessário, use-os com moderação e garanta que não interfiram nos estilos dos seus componentes.
+Verifique se a configuração do seu ambiente de desenvolvimento está correta para garantir o encapsulamento adequado dos estilos.
+Com essas práticas em mente, é possível minimizar a probabilidade de vazamentos de estilos entre componentes em um aplicativo React.
