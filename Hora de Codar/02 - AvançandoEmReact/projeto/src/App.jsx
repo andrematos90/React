@@ -10,6 +10,9 @@ import ExecuteFunction from './components/ExecuteFunction';
 import ConditionalRender from './components/ConditionalRender';
 import ShowUserName from './components/ShowUserName';
 import CarDetails from './components/CarDetails';
+import { useState } from 'react';
+import Message from './components/Message';
+import ChangeMessageState from './components/ChangeMessageState';
 
 
 function App() {
@@ -26,6 +29,12 @@ function App() {
   {id : 3, brand : "VW", model : "Gol", age : 2008, newCar : false},
   {id: 4, brand : "Honda", model : "Civic", age : 2008, newCar : true}
   ]
+
+  const[message, setMessage ] = useState("");
+  
+  const handleMessage = (msg) =>{
+    setMessage(msg);
+  };
 
   return (
     
@@ -71,6 +80,10 @@ function App() {
       
       {/*função como prop */}
       <ExecuteFunction myFunction={showMessage}/>
+
+      {/*state lift */}
+      <Message msg={message}></Message>
+      <ChangeMessageState handleMessage={handleMessage}/>
 
     </div>
     </div>
