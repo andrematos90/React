@@ -1,0 +1,195 @@
+Gerenciar dados de inputs em React envolve controlar o valor dos campos de formulário e responder às mudanças nesses valores. React fornece uma maneira eficaz de lidar com isso através de componentes controlados e não controlados.
+
+Componentes Controlados
+Componentes controlados são inputs cujo valor é controlado pelo estado do componente React. Isso significa que o valor do input é definido pelo estado do componente e atualizado através de eventos como onChange.
+
+Passos para Criar Componentes Controlados:
+Definir o estado inicial: Use o hook useState para definir o estado inicial dos campos do formulário.
+Lidar com mudanças: Crie uma função para atualizar o estado quando o valor do input mudar.
+Vincular o estado ao input: Configure o atributo value do input para ser o valor do estado e o evento onChange para chamar a função que atualiza o estado.
+
+Exemplo de Formulário com Componentes Controlados:
+
+import React, { useState } from 'react';
+
+function MyForm() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('Form data submitted:', formData);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>
+          Nome:
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          Email:
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          Mensagem:
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  );
+}
+
+export default MyForm;
+
+Componentes Não Controlados
+Componentes não controlados são inputs cujo valor é gerenciado pelo próprio DOM, em vez de pelo estado do componente React. Para acessar o valor do input, você pode usar refs.
+
+Passos para Criar Componentes Não Controlados:
+Criar uma ref: Use o hook useRef para criar uma referência ao input.
+Acessar o valor do input: Utilize a ref para acessar o valor atual do input, geralmente no evento de submissão do formulário.
+
+Exemplo de Formulário com Componentes Não Controlados:
+
+import React, { useRef } from 'react';
+
+function MyForm() {
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const messageRef = useRef(null);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = {
+      name: nameRef.current.value,
+      email: emailRef.current.value,
+      message: messageRef.current.value
+    };
+    console.log('Form data submitted:', formData);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>
+          Nome:
+          <input type="text" ref={nameRef} />
+        </label>
+      </div>
+      <div>
+        <label>
+          Email:
+          <input type="email" ref={emailRef} />
+        </label>
+      </div>
+      <div>
+        <label>
+          Mensagem:
+          <textarea ref={messageRef}></textarea>
+        </label>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  );
+}
+
+export default MyForm;
+
+Comparação entre Componentes Controlados e Não Controlados
+Componentes Controlados
+Vantagens:
+
+Fácil de validar e manipular os dados em tempo real.
+Integrado com o estado do componente, o que facilita o controle de entrada complexa e interações.
+Desvantagens:
+
+Pode ser mais verboso e envolver mais boilerplate.
+Componentes Não Controlados
+Vantagens:
+
+Menos código para inputs simples.
+Útil para formulários grandes onde você não precisa de validação em tempo real.
+Desvantagens:
+
+Menos integração com o estado do componente, dificultando a manipulação e validação dos dados em tempo real.
+Menos intuitivo para acompanhar o valor do input.
+Boas Práticas
+Validação de Formulário: Sempre valide os dados do formulário antes de enviar, independentemente de usar componentes controlados ou não controlados.
+Limpeza de Código: Mantenha o código limpo e organizado, separando a lógica de manipulação do estado do markup do JSX.
+Uso de Bibliotecas: Para formulários complexos, considere usar bibliotecas como Formik ou React Hook Form, que oferecem mais funcionalidades e simplificam a gestão de formulários.
+Exemplo com Validação e React Hook Form
+jsx
+Copiar código
+import React from 'react';
+import { useForm } from 'react-hook-form';
+
+function MyForm() {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  
+  const onSubmit = (data) => {
+    console.log('Form data submitted:', data);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div>
+        <label>Nome:</label>
+        <input
+          type="text"
+          {...register('name', { required: 'Nome é obrigatório' })}
+        />
+        {errors.name && <p>{errors.name.message}</p>}
+      </div>
+      <div>
+        <label>Email:</label>
+        <input
+          type="email"
+          {...register('email', { required: 'Email é obrigatório' })}
+        />
+        {errors.email && <p>{errors.email.message}</p>}
+      </div>
+      <div>
+        <label>Mensagem:</label>
+        <textarea
+          {...register('message', { required: 'Mensagem é obrigatória' })}
+        ></textarea>
+        {errors.message && <p>{errors.message.message}</p>}
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  );
+}
+
+export default MyForm;
+Neste exemplo, o React Hook Form é usado para simplificar o gerenciamento de formulários e validação.
