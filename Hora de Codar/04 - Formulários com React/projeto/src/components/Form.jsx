@@ -11,6 +11,7 @@ const handleName = (e) =>{
   setName(e.target.value);
 
   console.log(name)
+  console.log(email)
 }
 
   return (
@@ -25,7 +26,7 @@ const handleName = (e) =>{
             {/*02 - label envolvendo input */}
             <label>
               <span>E-mail:</span>
-              <input type="email" name='email' placeholder='Digite seu e-mail'/>
+              <input type="email" name='email' placeholder='Digite seu e-mail' onChange={(e)=>{setEmail(e.target.value)}}/>
             </label>
         </div>
         <input type="submit" value="Enviar"/>
