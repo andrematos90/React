@@ -1,0 +1,35 @@
+CSS Modules é uma abordagem para escrever CSS em que os estilos são encapsulados em módulos e são escopados localmente para o componente ao qual pertencem. Isso significa que os nomes das classes CSS são automaticamente modificados para evitar conflitos de nomenclatura entre diferentes componentes ou arquivos CSS.
+
+Em um projeto React, os CSS Modules são geralmente utilizados da seguinte forma:
+
+Nomenclatura de arquivos: Os arquivos CSS são nomeados com a extensão .module.css para indicar que são CSS Modules. Por exemplo, App.module.css.
+
+Escopo local: Cada classe CSS definida em um arquivo CSS Module é automaticamente escopada localmente para o componente que o importa. Isso significa que as classes definidas em um CSS Module não interferem nos estilos de outros componentes.
+
+Importação em componentes: No componente React que deseja estilizar, você pode importar as classes do arquivo CSS Module e usá-las normalmente em JSX. Por exemplo:
+
+
+import React from 'react';
+import styles from './App.module.css';
+
+function App() {
+  return (
+    <div className={styles.container}>
+      <h1 className={styles.title}>Bem-vindo ao meu aplicativo!</h1>
+      <p className={styles.paragraph}>Este é um parágrafo estilizado.</p>
+    </div>
+  );
+}
+
+export default App;
+
+No exemplo acima, as classes container, title e paragraph são importadas do arquivo CSS Module App.module.css e aplicadas aos elementos JSX.
+
+Referência de classes em JSX: Ao usar CSS Modules, você se refere às classes importadas usando a sintaxe de objeto JavaScript, como styles.nomeDaClasse. Isso permite que o bundler (como webpack) renomeie as classes automaticamente para evitar conflitos de nomenclatura.
+Uma das principais vantagens dos CSS Modules é a capacidade de escrever estilos de forma modular e encapsulada, sem se preocupar com conflitos de nomenclatura. Isso torna o código mais fácil de entender, manter e escalar em projetos React.
+
+
+
+
+
+
