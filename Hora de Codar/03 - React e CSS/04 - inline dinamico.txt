@@ -1,0 +1,69 @@
+O CSS inline dinâmico refere-se à capacidade de aplicar estilos CSS a elementos de forma dinâmica com base em condições ou valores que podem mudar durante a execução do aplicativo. Isso é comumente feito em frameworks como React, onde você pode modificar os estilos de um elemento com base em estados do componente, propriedades ou outras variáveis.
+
+Existem várias maneiras de implementar CSS inline dinâmico em um aplicativo React:
+
+Usando expressões ternárias: Você pode usar expressões ternárias em JSX para aplicar estilos condicionalmente com base em uma condição. Por exemplo:
+
+
+import React, { useState } from 'react';
+
+function App() {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  return (
+    <div 
+      style={{ 
+        backgroundColor: isHovered ? 'blue' : 'lightgray',
+        padding: '10px',
+        borderRadius: '5px'
+      }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      Passe o mouse sobre mim!
+    </div>
+  );
+}
+
+export default App;
+
+Neste exemplo, o estilo de fundo do <div> muda dinamicamente quando o mouse entra ou sai do elemento.
+
+Usando classes condicionais: Você pode definir classes CSS dinamicamente com base em estados ou propriedades do componente e aplicá-las ao elemento. Por exemplo:
+
+
+import React, { useState } from 'react';
+import './App.css'; // Importa o arquivo CSS com as classes
+
+function App() {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = () => {
+    setIsActive(!isActive);
+  };
+
+  return (
+    <div 
+      className={`box ${isActive ? 'active' : ''}`}
+      onClick={handleClick}
+    >
+      Clique em mim!
+    </div>
+  );
+}
+
+export default App;
+
+Neste exemplo, a classe active é adicionada ao elemento <div> quando o estado isActive é verdadeiro.
+
+Usando bibliotecas de estilização em linha: Bibliotecas como styled-components ou Emotion permitem definir estilos diretamente dentro dos componentes React usando JavaScript. Isso permite a criação de estilos dinâmicos com facilidade.
+
+Independentemente do método escolhido, o CSS inline dinâmico em um aplicativo React permite uma experiência de usuário mais interativa e personalizada, onde os estilos podem ser ajustados com base em diferentes condições ou interações do usuário.
