@@ -1,0 +1,58 @@
+Classes dinâmicas são classes CSS que podem ser adicionadas ou removidas de elementos HTML de forma dinâmica com base em condições ou eventos. Em um contexto React, isso geralmente é feito para aplicar estilos condicionalmente com base no estado do componente, propriedades passadas, ou interações do usuário.
+
+Existem várias maneiras de criar e aplicar classes dinâmicas em um aplicativo React:
+
+Expressões ternárias em JSX: Você pode usar expressões ternárias dentro de JSX para determinar se uma classe deve ser aplicada ou não com base em uma condição. Por exemplo:
+
+import React, { useState } from 'react';
+import './App.css'; // Importa o arquivo CSS com as classes
+
+function App() {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = () => {
+    setIsActive(!isActive);
+  };
+
+  return (
+    <div 
+      className={`box ${isActive ? 'active' : ''}`}
+      onClick={handleClick}
+    >
+      Clique em mim!
+    </div>
+  );
+}
+
+export default App;
+
+Neste exemplo, a classe active será adicionada à <div> quando o estado isActive for verdadeiro.
+
+Uso de lógica JavaScript: Você pode adicionar ou remover classes diretamente no seu JSX usando lógica JavaScript. Por exemplo:
+
+import React, { useState } from 'react';
+import './App.css'; // Importa o arquivo CSS com as classes
+
+function App() {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = () => {
+    setIsActive(!isActive);
+  };
+
+  return (
+    <div 
+      className={`box ${isActive ? 'active' : ''}`}
+      onClick={handleClick}
+    >
+      Clique em mim!
+    </div>
+  );
+}
+
+export default App;
+
+Neste exemplo, a classe active será adicionada à <div> quando o estado isActive for verdadeiro.
+
+Bibliotecas de estilização em linha: Como styled-components ou Emotion permitem definir estilos diretamente dentro dos componentes React usando JavaScript. Isso permite a criação de estilos dinâmicos com facilidade.
+Ao usar classes dinâmicas, é importante manter o código limpo e legível, evitando complexidade desnecessária. Certifique-se de que suas condições são claras e expressivas para facilitar a compreensão e a manutenção do código.

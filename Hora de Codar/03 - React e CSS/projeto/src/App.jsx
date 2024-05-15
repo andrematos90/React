@@ -8,6 +8,8 @@ function App() {
 
   const [name] = useState('André');
 
+  const [redTitle] = useState(true)
+
   return (
     <>
 
@@ -24,6 +26,10 @@ function App() {
     <h2 style={n < 10 ? {backgroundColor: "blue", color: 'white'} : {backgroundColor: "yellow"}}>CSS Dinamico</h2>
 
     {name == "André" ? (<p style={{backgroundColor :  'blue', color: 'white'}}>Usuário {name} Liberado!</p>) : (<p style={{backgroundColor: 'red'}}>Usuário negado!</p>) }
+
+
+    {/*classe dinâmica*/}
+    <h1 className= {redTitle ? "red-title" : "title"} >O estilo desse título é aplicado por uma classe dinâmica</h1>
 
      <MyComponent/>
     </>
