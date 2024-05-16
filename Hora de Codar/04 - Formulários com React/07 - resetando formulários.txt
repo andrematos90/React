@@ -1,0 +1,155 @@
+Resetar formulários em React pode ser feito de várias maneiras, dependendo se você está usando componentes controlados ou não controlados. A abordagem mais comum em formulários controlados é simplesmente redefinir o estado que está sendo usado para controlar os valores dos inputs. Vamos ver como isso pode ser feito.
+
+Resetar um Formulário Controlado
+Exemplo Básico de Formulário Controlado
+Aqui está um exemplo de um formulário controlado onde os inputs são controlados pelo estado do componente:
+
+
+import React, { useState } from 'react';
+
+function MyForm() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('Form data submitted:', formData);
+    // Aqui você pode enviar os dados para um servidor ou processá-los como desejar
+  };
+
+  const handleReset = () => {
+    setFormData({
+      name: '',
+      email: '',
+      message: ''
+    });
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>
+          Nome:
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          Email:
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          Mensagem:
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+          ></textarea>
+        </label>
+      </div>
+      <button type="submit">Enviar</button>
+      <button type="button" onClick={handleReset}>Reset</button>
+    </form>
+  );
+}
+
+export default MyForm;
+Explicação do Código
+Estado Inicial: O estado inicial do formulário é definido com useState.
+Manipulador de Mudanças (handleChange): Atualiza o estado formData quando o valor dos inputs muda.
+Manipulador de Submissão (handleSubmit): Processa os dados do formulário quando ele é submetido.
+Manipulador de Reset (handleReset): Redefine o estado do formulário para seus valores iniciais.
+Resetar um Formulário Não Controlado
+Se você estiver usando componentes não controlados, pode usar refs para acessar os elementos do formulário e redefinir os valores diretamente.
+
+Exemplo de Formulário Não Controlado
+
+import React, { useRef } from 'react';
+
+function MyForm() {
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const messageRef = useRef(null);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = {
+      name: nameRef.current.value,
+      email: emailRef.current.value,
+      message: messageRef.current.value
+    };
+    console.log('Form data submitted:', formData);
+    // Aqui você pode enviar os dados para um servidor ou processá-los como desejar
+  };
+
+  const handleReset = () => {
+    nameRef.current.value = '';
+    emailRef.current.value = '';
+    messageRef.current.value = '';
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>
+          Nome:
+          <input type="text" ref={nameRef} />
+        </label>
+      </div>
+      <div>
+        <label>
+          Email:
+          <input type="email" ref={emailRef} />
+        </label>
+      </div>
+      <div>
+        <label>
+          Mensagem:
+          <textarea ref={messageRef}></textarea>
+        </label>
+      </div>
+      <button type="submit">Enviar</button>
+      <button type="button" onClick={handleReset}>Reset</button>
+    </form>
+  );
+}
+
+export default MyForm;
+Explicação do Código
+Refs para Inputs: Usamos o hook useRef para criar referências aos inputs.
+Manipulador de Submissão (handleSubmit): Acessa os valores dos inputs através das refs e processa os dados do formulário.
+Manipulador de Reset (handleReset): Redefine os valores dos inputs diretamente através das refs.
+Dicas e Boas Práticas
+Reutilização de Código: Se você tiver lógica de inicialização ou reset complexa, considere encapsulá-la em uma função separada para manter o código limpo.
+Validação: Antes de resetar o formulário, certifique-se de que não há dados pendentes ou estados inválidos que precisem ser processados.
+UX: Após resetar o formulário, considere focar no primeiro campo de input para melhorar a experiência do usuário.
+Com estas abordagens, você pode facilmente resetar formulários em React, garantindo que os dados sejam limpos e o formulário esteja pronto para novas entradas.
+
+
+
+
+
+

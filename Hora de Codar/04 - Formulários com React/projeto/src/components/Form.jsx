@@ -5,10 +5,13 @@ const Form = ({user}) => {
 
   /*06 - controlled inputs, obs: faz com que o campo venha pré preenchido*/
 
+// Estado para name e email
 /*03 - gerenciamento de dados de input */
-const [name, setName] = useState(user ? user.name : '');
-const [email, setEmail] = useState(user ? user.email : '');
+const [name, setName] = useState(user ? user.name : "");
+const [email, setEmail] = useState(user ? user.email : "");
 
+
+// Função para lidar com a mudança do input de nome
 const handleName = (e) =>{
   setName(e.target.value);
 
@@ -16,9 +19,15 @@ const handleName = (e) =>{
   console.log(email)
   }
 
+
+  // Função para lidar com a submissão do formulário
   const handleSubmit = (e) =>{
-    e.preventeDefault(); /*evita que a página seja recarregada ao enviar o formulário */
+    e.preventDefault(); /*evita que a página seja recarregada ao enviar o formulário */
     console.log("Enviando Formulário");
+
+    {/*07 resetando formulário */}
+    setName("");
+    setEmail("");
 };
 
   return (
