@@ -8,7 +8,7 @@ function App() {
   return (
     <>
     <h1>Formulário</h1>
-      <Form></Form>
+      <Form user={{name: "Binzão", email:"binho@gmail.com"}}></Form>
     </>
   )
 }

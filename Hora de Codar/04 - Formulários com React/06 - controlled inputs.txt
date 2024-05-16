@@ -1,0 +1,101 @@
+"Controlled inputs" em React referem-se a inputs cujo valor é controlado pelo estado do componente. Isso significa que o valor do input é determinado pelo estado do componente React e atualizado através de eventos, como onChange. Essa abordagem permite um controle total sobre os dados dos inputs, facilitando a validação, formatação e manipulação dos dados em tempo real.
+
+Características dos Controlled Inputs
+Estado Centralizado: O valor do input é armazenado no estado do componente.
+Sincronização: O valor do input é sempre sincronizado com o estado do componente.
+Manipuladores de Eventos: Utiliza manipuladores de eventos (como onChange) para atualizar o estado do componente conforme o usuário digita.
+
+Benefícios dos Controlled Inputs
+Validação em Tempo Real: Permite validar e formatar os dados enquanto o usuário digita.
+Facilidade de Depuração: O estado do formulário é mantido em um único local, facilitando a depuração.
+Consistência de Dados: Garante que os dados do input estejam sempre sincronizados com o estado do componente.
+
+Como Implementar Controlled Inputs
+Passos para Criar Controlled Inputs
+Definir o estado inicial: Use o hook useState para definir o estado inicial dos campos do formulário.
+Adicionar manipuladores de eventos: Crie funções para atualizar o estado quando o valor do input mudar.
+Vincular o estado ao input: Configure o atributo value do input para ser o valor do estado e o evento onChange para chamar a função que atualiza o estado.
+
+Exemplo de Controlled Input
+Aqui está um exemplo básico de um formulário com controlled inputs:
+
+
+import React, { useState } from 'react';
+
+function MyForm() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('Form data submitted:', formData);
+    // Aqui você pode enviar os dados para um servidor ou processá-los como desejar
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>
+          Nome:
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          Email:
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          Mensagem:
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+          ></textarea>
+        </label>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  );
+}
+
+export default MyForm;
+
+Explicação do Código
+Estado Inicial: O estado inicial é definido usando useState. Neste exemplo, o estado formData armazena os valores dos inputs name, email e message.
+Manipulador de Mudanças (handleChange): Esta função é chamada sempre que o valor de um input muda. Ela atualiza o estado formData com o novo valor do input.
+Manipulador de Submissão (handleSubmit): Esta função é chamada quando o formulário é submetido. Ela previne o comportamento padrão do navegador (recarregar a página) e pode ser usada para processar os dados do formulário (por exemplo, enviá-los a um servidor).
+Inputs Controlados: Cada input (campo de texto, email e textarea) tem seu valor (value) ligado ao estado formData e um evento onChange que chama handleChange para atualizar o estado.
+Vantagens e Desvantagens
+Vantagens:
+Controle Total: Permite um controle total sobre os valores dos inputs.
+Validação e Formatação: Facilita a validação e formatação dos dados em tempo real.
+Manutenção: Centraliza o estado do formulário, facilitando a manutenção e depuração do código.
+Desvantagens:
+Verbosidade: Pode resultar em código mais verboso, especialmente para formulários grandes.
+Complexidade Inicial: Pode ser um pouco mais complexo para desenvolvedores iniciantes comparado aos componentes não controlados.
+Conclusão
+Controlled inputs são uma abordagem poderosa em React para gerenciar o estado dos inputs de formulários. Eles oferecem controle total e flexibilidade, permitindo validação e manipulação de dados em tempo real, embora possam resultar em um código mais verboso. Essa abordagem é recomendada para a maioria dos casos de uso onde a consistência e a precisão dos dados são críticas.
