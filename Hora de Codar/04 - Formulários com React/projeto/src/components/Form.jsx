@@ -14,6 +14,8 @@ const [email, setEmail] = useState(user ? user.email : "");
 /*08 - textarea */
 const [bio, setBio] = useState("");
 
+/*09 - select */
+const [role, setRole] = useState("");
 
 // Função para lidar com a mudança do input de nome
 const handleName = (e) =>{
@@ -28,7 +30,7 @@ const handleName = (e) =>{
   const handleSubmit = (e) =>{
     e.preventDefault(); /*evita que a página seja recarregada ao enviar o formulário */
     console.log("Enviando Formulário");
-    console.log(name, email. bio)
+    console.log(name, email, bio, role)
  
 
 
@@ -57,6 +59,16 @@ const handleName = (e) =>{
            <label>
             <span>Bio:</span>
             <textarea name="bio" placeholder='Escreva sua bio..' onChange={(e)=>{setBio(e.target.value)}} value={bio}></textarea>
+           </label>
+
+           {/*09 - select */}
+           <label>
+            <span>Função no sistema</span>
+            <select name="role"  onChange={(e)=>setRole(e.target.value)}>
+              <option value="user">Usuário</option>
+              <option value="editor">Editor</option>
+              <option value="admi">Administrador</option>
+            </select>
            </label>
 
         </div>
