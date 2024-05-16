@@ -11,12 +11,16 @@ const [name, setName] = useState(user ? user.name : "");
 const [email, setEmail] = useState(user ? user.email : "");
 
 
+/*08 - textarea */
+const [bio, setBio] = useState("");
+
+
 // Função para lidar com a mudança do input de nome
 const handleName = (e) =>{
   setName(e.target.value);
 
-  console.log(name)
-  console.log(email)
+  //console.log(name)
+  //console.log(email)
   }
 
 
@@ -24,10 +28,14 @@ const handleName = (e) =>{
   const handleSubmit = (e) =>{
     e.preventDefault(); /*evita que a página seja recarregada ao enviar o formulário */
     console.log("Enviando Formulário");
+    console.log(name, email. bio)
+ 
+
 
     {/*07 resetando formulário */}
     setName("");
     setEmail("");
+    setBio("");
 };
 
   return (
@@ -44,6 +52,13 @@ const handleName = (e) =>{
               <span>E-mail:</span>
               <input value={email} name='email' placeholder='Digite seu e-mail' onChange={(e)=>{setEmail(e.target.value)}}/> {/*alteração state inline */}
             </label>
+            
+            {/*08 - textarea */}
+           <label>
+            <span>Bio:</span>
+            <textarea name="bio" placeholder='Escreva sua bio..' onChange={(e)=>{setBio(e.target.value)}} value={bio}></textarea>
+           </label>
+
         </div>
         <input type="submit" value="Enviar"/>
     </form>

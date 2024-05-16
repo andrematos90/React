@@ -1,0 +1,153 @@
+O elemento <textarea> em React é usado para capturar grandes blocos de texto do usuário, como em caixas de comentários ou descrições. Em React, <textarea> funciona de maneira semelhante a <input>, especialmente quando se trata de componentes controlados e não controlados. Aqui vamos explorar como usá-lo de forma eficaz em um componente React.
+
+Componentes Controlados
+Em um componente controlado, o valor de <textarea> é vinculado ao estado do componente e é atualizado através de manipuladores de eventos. Isso permite que você tenha controle total sobre o conteúdo da <textarea>.
+
+Exemplo de <textarea> Controlado
+Aqui está um exemplo básico de um <textarea> controlado:
+
+
+import React, { useState } from 'react';
+
+function MyForm() {
+  const [message, setMessage] = useState('');
+
+  const handleChange = (event) => {
+    setMessage(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('Message submitted:', message);
+    // Limpar o campo após o envio
+    setMessage('');
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="message">Mensagem:</label>
+        <textarea
+          id="message"
+          name="message"
+          value={message}
+          onChange={handleChange}
+          placeholder="Digite sua mensagem"
+        />
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  );
+}
+
+export default MyForm;
+
+Explicação do Código
+Estado Inicial: useState é usado para criar um estado message que armazena o valor da <textarea>.
+Manipulador de Mudanças: handleChange é uma função que atualiza o estado message sempre que o usuário digita algo na <textarea>.
+Manipulador de Submissão: handleSubmit previne o comportamento padrão do formulário (recarregar a página), imprime a mensagem no console e limpa o campo de texto após o envio.
+Componentes Não Controlados
+Em um componente não controlado, você pode usar uma ref para acessar o valor do <textarea> diretamente no DOM.
+
+Exemplo de <textarea> Não Controlado
+Aqui está um exemplo básico de um <textarea> não controlado:
+
+
+import React, { useRef } from 'react';
+
+function MyForm() {
+  const messageRef = useRef(null);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('Message submitted:', messageRef.current.value);
+    // Limpar o campo após o envio
+    messageRef.current.value = '';
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="message">Mensagem:</label>
+        <textarea
+          id="message"
+          name="message"
+          ref={messageRef}
+          placeholder="Digite sua mensagem"
+        />
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  );
+}
+
+export default MyForm;
+
+Explicação do Código
+Referência (Ref): useRef é usado para criar uma referência (messageRef) para a <textarea>.
+Manipulador de Submissão: handleSubmit previne o comportamento padrão do formulário, acessa o valor da <textarea> através da ref (messageRef.current.value), imprime a mensagem no console e limpa o campo de texto após o envio.
+Considerações sobre <textarea>
+Placeholder: Diferente do HTML tradicional, você pode adicionar o placeholder diretamente no JSX do <textarea>.
+Tamanho do Campo: Você pode definir as propriedades rows e cols para controlar a altura e a largura do <textarea>, respectivamente.
+Estilos: A aplicação de estilos CSS funciona da mesma forma que em outros elementos de formulário.
+Exemplo Completo de Componente Controlado
+Aqui está um exemplo mais completo e funcional de um componente controlado que usa <textarea>:
+
+
+import React, { useState } from 'react';
+
+function FeedbackForm() {
+  const [feedback, setFeedback] = useState('');
+  const [email, setEmail] = useState('');
+
+  const handleFeedbackChange = (event) => {
+    setFeedback(event.target.value);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('Feedback submitted:', feedback);
+    console.log('Email submitted:', email);
+    // Limpar os campos após o envio
+    setFeedback('');
+    setEmail('');
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="feedback">Feedback:</label>
+        <textarea
+          id="feedback"
+          name="feedback"
+          value={feedback}
+          onChange={handleFeedbackChange}
+          placeholder="Digite seu feedback"
+          rows="4"
+          cols="50"
+        />
+      </div>
+      <div>
+        <label htmlFor="email">Email:</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          value={email}
+          onChange={handleEmailChange}
+          placeholder="Digite seu email"
+        />
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  );
+}
+
+export default FeedbackForm;
+
+Conclusão
+O uso de <textarea> em React segue os mesmos princípios dos inputs controlados e não controlados. Em componentes controlados, o valor do <textarea> é vinculado ao estado do componente, proporcionando controle total sobre os dados. Já em componentes não controlados, as refs permitem acessar diretamente o DOM para manipular os valores. Escolher entre essas abordagens depende das necessidades específicas de sua aplicação.
