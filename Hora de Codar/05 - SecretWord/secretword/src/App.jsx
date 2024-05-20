@@ -40,7 +40,7 @@ function App() {
   {
     /*variável com a quantidade de letras adivinhadas */
   }
-  const [wrongLetter, setWrongLetters] = useState([]);
+  const [wrongLetters, setWrongLetters] = useState([]);
   {
     /*variável com a quantidade de letras erradas */
   }
@@ -88,7 +88,28 @@ function App() {
 
   //processando a letra
   const verifyLetter = (letter) => {
-    console.log(letter);
+    
+    const normalizedLetter = letter.toLowerCase();
+    
+    //verifica se letra ja foi utilizada 
+    if(
+      guessedLetters.includes(normalizedLetter) ||
+     wrongLetters.includes(normalizedLetter)){
+      return;
+    }
+
+    //incluem letras certas para as acertadas "guessedLetters"
+    if (letters.includes(normalizedLetter)) {
+      setGuessedLetters((actualGuessedLetters) => [
+        ...actualGuessedLetters,
+        normalizedLetter,
+      ]);
+    } else {
+      setWrongLetters((actualWrongLetters) => [
+        ...actualWrongLetters,
+        normalizedLetter,
+      ]);
+    }
   };
 
   //iniciando jogo novamente
@@ -110,7 +131,7 @@ function App() {
             pickedCategory={pickedCategory}
             letters={letters}
             guessedLetters={guessedLetters}
-            wrongLetters = {wrongLetter}
+            wrongLetters = {wrongLetters}
             guesses = { guesses}
             score = {score}
           />
