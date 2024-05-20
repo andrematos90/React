@@ -109,11 +109,32 @@ function App() {
         ...actualWrongLetters,
         normalizedLetter,
       ]);
+
+      setGuesses((actualGuesses) => actualGuesses -1);
     }
+      
   };
+
+  const clearSetStates = () =>{
+    setGuessedLetters([]);
+    setWrongLetters([]);
+  }
+
+  useEffect(()=>{
+    if(guesses <= 0) {
+      //apaga tudo e inicia o jogo do zero
+      clearSetStates();
+
+
+      //faz com que o jogo va para a tela de gameover
+      setGameStage(stages[2].name);
+    }
+  }, [guesses]);
 
   //iniciando jogo novamente
   const retry = () => {
+    setScore(0);
+    setGuesses(3);
     setGameStage(stages[0].name);
   };
 
