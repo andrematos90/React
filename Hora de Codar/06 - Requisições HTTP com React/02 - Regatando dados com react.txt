@@ -1,0 +1,3 @@
+- primeiro ter um local para salvá-los (usando useState)
+- renderizar a chamada a API appenas uma uma vez (useEffect)
+- um meio de fazer a requisição assincrona (Fetch API)
