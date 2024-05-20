@@ -159,7 +159,7 @@ function App() {
         )}
 
         {/*quanado a variável "gameStage tiver valor "end" o componente GameOVer é renderizado */}
-        {gameStage === "end" && <GameOver retry={retry} />}
+        {gameStage === "end" && <GameOver retry={retry}  score={score}/>}
       </div>
     </>
   );
