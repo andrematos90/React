@@ -54,7 +54,7 @@ function App() {
   }
 
   //função que sorteia uma categoria e uma palavra
-  const pickedWordAndCategory = () => {
+  const pickedWordAndCategory = useCallback(() => {
     //sorteio da categoria
     const categories = Object.keys(words);
     const category =
@@ -66,10 +66,10 @@ function App() {
       words[category][Math.floor(Math.random() * words[category].length)];
 
     return { word, category };
-  };
+  }, [words]);
 
   //iniciando jogo
-  const startGame = () => {
+  const startGame = useCallback(() => {
     //chama a função que retorna a categoria e a letra da vez
     const { word, category } = pickedWordAndCategory();
 
@@ -84,7 +84,7 @@ function App() {
     setLetters(wordletters);
 
     setGameStage(stages[1].name);
-  };
+  }, [pickedWordAndCategory]);
 
   //processando a letra
   const verifyLetter = (letter) => {
@@ -120,6 +120,7 @@ function App() {
     setWrongLetters([]);
   }
 
+  //se tentativas acabaram
   useEffect(()=>{
     if(guesses <= 0) {
       //apaga tudo e inicia o jogo do zero
@@ -130,6 +131,23 @@ function App() {
       setGameStage(stages[2].name);
     }
   }, [guesses]);
+
+
+  //se atingiu a condição de vitória
+  useEffect(()=>{
+    const uniqueLetters = [... new Set(letters)];
+
+    //condição de vitória
+    if(guessedLetters.length === uniqueLetters.length){
+
+      //adiciona pontuação
+      setScore((actualScore) => (actualScore += 100));
+
+      //recomeça o jogo
+      startGame();
+    }
+
+  }, [guessedLetters, letters, startGame]);
 
   //iniciando jogo novamente
   const retry = () => {
