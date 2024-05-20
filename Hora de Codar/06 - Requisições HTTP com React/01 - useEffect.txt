@@ -1,0 +1,100 @@
+useEffect é um hook no React que permite realizar efeitos colaterais em componentes funcionais. Antes da introdução dos hooks, os efeitos colaterais eram gerenciados nos métodos de ciclo de vida dos componentes de classe, como componentDidMount, componentDidUpdate, e componentWillUnmount. Com hooks, você pode gerenciar efeitos colaterais em componentes funcionais de maneira mais limpa e concisa.
+
+O que é um efeito colateral?
+Um efeito colateral é qualquer operação que afeta algo fora do escopo da função que está sendo executada. Isso inclui:
+
+Chamadas a APIs ou requisições de dados.
+Assinaturas de serviços ou fluxos de dados.
+Manipulações diretas do DOM.
+Operações que atualizam o estado fora do ciclo de renderização do React.
+
+Sintaxe básica de useEffect
+
+import React, { useEffect } from 'react';
+
+function MeuComponente() {
+  useEffect(() => {
+    // Código do efeito
+  });
+
+  return (
+    <div>
+      {/* Renderização do componente */}
+    </div>
+  );
+}
+
+Uso básico
+O hook useEffect recebe uma função como argumento. Este efeito é executado após o componente ter sido renderizado (montado no DOM).
+
+
+useEffect(() => {
+  console.log('O componente foi renderizado');
+});
+
+Dependências
+Você pode passar um segundo argumento para useEffect, que é um array de dependências. O efeito será reexecutado somente se alguma dessas dependências mudar.
+
+useEffect(() => {
+  console.log('O componente foi renderizado ou count mudou');
+}, [count]);
+
+Se você deseja que o efeito seja executado apenas uma vez quando o componente for montado, passe um array vazio como segundo argumento:
+
+
+useEffect(() => {
+  console.log('O componente foi montado');
+}, []);
+
+
+Limpeza de efeitos
+Alguns efeitos podem precisar de limpeza para evitar vazamentos de memória, especialmente efeitos que configuram assinaturas ou timers. Para isso, você pode retornar uma função de limpeza a partir do useEffect.
+
+
+useEffect(() => {
+  console.log('Assinando um evento');
+
+  return () => {
+    console.log('Limpando a assinatura do evento');
+  };
+}, []);
+
+Exemplo completo
+Aqui está um exemplo completo que mostra como usar useEffect para buscar dados de uma API e limpar o timer quando o componente é desmontado:
+
+
+import React, { useState, useEffect } from 'react';
+
+function MeuComponente() {
+  const [dados, setDados] = useState(null);
+  const [contador, setContador] = useState(0);
+
+  useEffect(() => {
+    console.log('Buscando dados da API');
+
+    fetch('https://api.exemplo.com/dados')
+      .then(response => response.json())
+      .then(data => setDados(data));
+
+    const timer = setInterval(() => {
+      setContador(prevContador => prevContador + 1);
+    }, 1000);
+
+    return () => {
+      console.log('Limpando o timer');
+      clearInterval(timer);
+    };
+  }, []);
+
+  return (
+    <div>
+      <h1>Dados da API:</h1>
+      {dados ? <pre>{JSON.stringify(dados, null, 2)}</pre> : <p>Carregando...</p>}
+      <p>Contador: {contador}</p>
+    </div>
+  );
+}
+
+export default MeuComponente;
+
+Neste exemplo, useEffect é usado para buscar dados de uma API quando o componente é montado e configurar um timer que atualiza o contador a cada segundo. Quando o componente é desmontado, o timer é limpo para evitar vazamentos de memória.
