@@ -87,8 +87,8 @@ function App() {
   };
 
   //processando a letra
-  const verifyLetter = () => {
-    setGameStage(stages[2].name);
+  const verifyLetter = (letter) => {
+    console.log(letter);
   };
 
   //iniciando jogo novamente
@@ -108,7 +108,7 @@ function App() {
             verifyLetter={verifyLetter}
             pickedWord={pickedWord} 
             pickedCategory={pickedCategory}
-            letter={letters}
+            letters={letters}
             guessedLetters={guessedLetters}
             wrongLetters = {wrongLetter}
             guesses = { guesses}
