@@ -7,6 +7,10 @@ import { useEffect, useState } from "react";
 function App() {
   // Declara um estado chamado `products` e a função `setProducts` para atualizá-lo
   const [products, setProducts] = useState([]);
+
+  //Declara name e price
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
   
   // Define a URL da API onde os dados dos produtos serão buscados
   const url = "http://localhost:3000/products";
@@ -29,8 +33,38 @@ function App() {
     fetchData();
   }, []); // O array vazio significa que este efeito será executado apenas uma vez, após a montagem do componente
 
-  // Loga o estado `products` no console
-  console.log(products);
+
+  //adição de produtos
+
+
+  const handleSubmit = async(e) => {
+    // Previne o comportamento padrão do formulário, que é recarregar ao página ao enviar
+    e.preventDefault();
+  
+    // Cria um objeto 'product' com as propriedades 'name' e 'price' usando os valores atuais dessas variáveis que recebem os estados name e price antes declarados
+    const product = {
+      name,
+      price,
+    };
+  
+    // Envia uma requisição HTTP POST para a URL especificada
+    // A função 'fetch' é assíncrona, então usamos 'await' para esperar a resposta da requisição
+    const requisicao = await fetch(url, {
+      // Especifica que o método da requisição é POST
+      method: "POST",
+      // Define os cabeçalhos da requisição, especificando que o corpo da requisição será em formato JSON
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // Converte o objeto 'product' para uma string JSON e o inclui no corpo da requisição
+      body: JSON.stringify(product),
+    });
+  
+   
+  };
+  
+
+
 
   // Renderiza o componente
   return (
@@ -45,6 +79,20 @@ function App() {
       ) : (
         <p>Carregando...</p> // Exibe "Carregando..." se a lista de produtos estiver vazia
       )}
+
+      <div className='add-product'>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Nome: 
+            <input type="text" value={name} name="name" onChange={(e) => setName(e.target.value)}/>
+          </label>
+          <label>
+            Preço R$: 
+            <input type="number" value={price} price='price' onChange={(e) => setPrice(e.target.value)}/>
+          </label>
+          <input type="submit" value= "Add Produto" />
+        </form>
+      </div>
     </div>
   );
 }
