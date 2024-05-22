@@ -1,0 +1,58 @@
+- é normal dividir funções que podem ser reaproveitadas em hooks;
+- Está técnica é chamada de custom hook, vamos criar um para o resgate de dados;
+- os hooks geralmente ficam na pasta "hooks";
+- Devemos utilizar o padrão useName;
+- Basicamente criamos uma funçãi e exportamos ela;
+
+
+Custom hooks são uma funcionalidade do React, uma biblioteca JavaScript para construção de interfaces de usuário, que permitem a reutilização de lógica de estado entre componentes de forma fácil e limpa. Hooks foram introduzidos no React na versão 16.8 e são funções que permitem "encaixar" (ou "hook into") funcionalidades de estado e ciclo de vida de componentes funcionais.
+
+Custom hooks são funções JavaScript que começam com a palavra "use" e podem chamar outros hooks dentro delas. Eles permitem que você extraia e compartilhe a lógica de estado entre diferentes componentes sem precisar duplicar código.
+
+Por que usar Custom Hooks?
+Reutilização de Lógica: Você pode reutilizar a mesma lógica em diferentes componentes.
+Legibilidade: A lógica complexa pode ser separada em hooks personalizados, tornando os componentes mais limpos e mais fáceis de entender.
+Teste: Custom hooks podem ser testados separadamente, o que pode facilitar o desenvolvimento e a manutenção.
+
+Como Criar um Custom Hook
+Aqui está um exemplo simples de um custom hook que rastreia o estado de uma contagem:
+
+
+import { useState, useEffect } from 'react';
+
+// Um hook personalizado para gerenciar uma contagem
+function useCounter(initialCount = 0) {
+    const [count, setCount] = useState(initialCount);
+
+    const increment = () => setCount(count + 1);
+    const decrement = () => setCount(count - 1);
+    const reset = () => setCount(initialCount);
+
+    return { count, increment, decrement, reset };
+}
+
+// Usando o hook personalizado em um componente
+function CounterComponent() {
+    const { count, increment, decrement, reset } = useCounter(10);
+
+    return (
+        <div>
+            <p>Count: {count}</p>
+            <button onClick={increment}>Increment</button>
+            <button onClick={decrement}>Decrement</button>
+            <button onClick={reset}>Reset</button>
+        </div>
+    );
+}
+
+Estrutura de um Custom Hook
+
+Definição: Um custom hook é apenas uma função JavaScript que usa outros hooks internos.
+Uso de Hooks Internos: Dentro do custom hook, você pode usar useState, useEffect, useContext, ou qualquer outro hook.
+Retorno: Retorne o que for necessário para o componente que utilizará o custom hook. Pode ser um objeto, array, ou qualquer outra estrutura.
+Exemplos Comuns de Custom Hooks
+useFetch: Para fazer chamadas de API.
+useLocalStorage: Para gerenciar estado no local storage.
+useToggle: Para alternar valores booleanos.
+
+Custom hooks são uma maneira poderosa de melhorar a reutilização e a organização do código no React, facilitando a manutenção e a escalabilidade de aplicações complexas.
