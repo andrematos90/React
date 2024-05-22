@@ -1,0 +1,4 @@
+- Podemos utilizar o mesmo hook para incluir uma etapar de POST;
+- Vamos criar um novo useEffect que mapeia uma outra mudança de estado;
+- Após ela ocorrer executamos a adição de produto;
+- OBS: nem sempre reutilzar um hook é a melhor estratégia;
