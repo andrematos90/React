@@ -34,8 +34,7 @@ function App() {
   }, []); // O array vazio significa que este efeito será executado apenas uma vez, após a montagem do componente
 
 
-  //adição de produtos
-
+  //03 - adição de produtos
 
   const handleSubmit = async(e) => {
     // Previne o comportamento padrão do formulário, que é recarregar ao página ao enviar
@@ -59,7 +58,28 @@ function App() {
       // Converte o objeto 'product' para uma string JSON e o inclui no corpo da requisição
       body: JSON.stringify(product),
     });
-  
+
+
+
+    //04 - Carregammento dinâmico (atualização automatica da página com os novos dados)
+
+
+    // Converte a resposta da requisição HTTP em um objeto JavaScript.
+
+    //await: Espera que a conversão seja concluída antes de continuar. Como json() retorna uma Promise, usamos await para aguardar sua resolução.
+    const addedProduct = await requisicao.json()
+
+    /* Atualiza o estado do componente React com o novo produto adicionado.
+
+    - setProducts: Função do hook useState usada para atualizar o estado do componente.
+    - prevProducts: Representa o estado atual da lista de produtos antes da atualização. É passado automaticamente para a função fornecida a setProducts.
+    - [...] (spread operator): Cria uma nova array que inclui todos os elementos do array prevProducts e adiciona addedProduct no final. Isso mantém todos os produtos existentes e adiciona o novo produto.
+    -A função fornecida a setProducts é chamada de função atualizadora, que recebe o estado anterior e retorna o novo estado. Isso é necessário porque a atualização do estado depende do estado anterior.*/
+    setProducts((prevProducts) => [...prevProducts, addedProduct])
+
+    //resseta os states, para limpar os campos
+    setName("");
+    setPrice("");
    
   };
   
