@@ -16,24 +16,17 @@
       "price": 29.9
     },
     {
-      "id": "b6ad",
-      "name": "Casaco Nasa",
-      "price": "139.90"
+      "id": "c297"
     },
     {
-      "id": "6e51",
-      "name": "Jaqueta",
-      "price": "220"
+      "id": "0c8f",
+      "name": "Calça Jeans",
+      "price": "1"
     },
     {
-      "id": "d8d7",
-      "name": "Camisa JEC",
-      "price": "180"
-    },
-    {
-      "id": "47f9",
-      "name": "Camisa  Preta",
-      "price": "32"
+      "id": "d4e4",
+      "name": "Binzão",
+      "price": "1"
     }
   ]
 }

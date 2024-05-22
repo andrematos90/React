@@ -12,7 +12,7 @@ const url = "http://localhost:3000/products";
 
 function App() {
   // Declara um estado chamado `products` e a função `setProducts` para atualizá-lo
-  const [product, setProduct] = useState([]);
+  const [products, setProducts] = useState([]);
 
   // 04 - custom hook e  05 - refatorando POST
   const { data: items, httpConfig } = useFetch(url);
@@ -33,6 +33,8 @@ function App() {
     
 
     //05 - POST refatorado com hook
+
+    const product = {name, price};
     httpConfig(product, "POST");
    
 
