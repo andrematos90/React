@@ -14,6 +14,7 @@ Histórico de Navegação: O React Router fornece acesso ao histórico de navega
 
 Exemplo básico de uso do React Router:
 
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
@@ -57,3 +58,5 @@ function App() {
 
 export default App;
 Neste exemplo, BrowserRouter é o componente que encapsula toda a aplicação e fornece a funcionalidade de roteamento. Route é utilizado para definir qual componente deve ser renderizado em uma determinada rota, e Link é utilizado para criar links de navegação entre as rotas. Switch é usado para garantir que apenas uma rota seja renderizada por vez.
+
+
