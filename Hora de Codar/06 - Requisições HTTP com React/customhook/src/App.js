@@ -41,7 +41,14 @@ function App() {
     //resseta os states, para limpar os campos
     setName("");
     setPrice("");
+
   };
+
+  //desafio
+  const delProduct = (id) =>{
+
+    httpConfig(id, "DELETE");
+  }
 
   
   return (
@@ -53,15 +60,14 @@ function App() {
       {loading && <p>Carregando dados...</p>}
       {error && <p>{error}</p>}
       <ul>
-        {items &&
+        {Array.isArray(items) &&
           items.map((product) => (
             <li key={product.id}>
               {product.name} - R$ {product.price}
+              <button onClick={() => delProduct(product.id)}>Deletar</button>
             </li>
           ))}
       </ul>
-      
-
       <div className="add-product">
         <form onSubmit={handleSubmit}>
           <label>
