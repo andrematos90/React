@@ -1,0 +1,3 @@
+- Podemosss bloquear ações indevidas de outras requests também, como no POST;
+- Uma ação interessante é remover a ação de adicionar outro item enquanto o request
+ainda não finalizou;

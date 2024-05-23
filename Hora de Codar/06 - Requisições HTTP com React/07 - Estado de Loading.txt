@@ -1,0 +1,4 @@
+- Quando fazemos requisições para APIS é normal que haja um intervalo de loading
+entre a requisição e o recebimento da resposta;
+- Podemos fazer isso no hook também;
+- Identificar quando começa e termina este estado;
