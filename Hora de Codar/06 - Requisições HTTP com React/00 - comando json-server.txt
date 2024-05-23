@@ -1,0 +1,14 @@
+comando: npm install json-server@0.17.0
+
+
+
+em package.json em scripts: 
+
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "json-server --watch data/db.json"    <<<<<< adicionar
+
+  },
