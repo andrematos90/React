@@ -4,7 +4,7 @@ import "./App.css";
 // Importa os hooks `useEffect` e `useState` do React
 import { useState } from "react";
 
-// 04 - import de custom hook
+// 05 - import de custom hook
 import { useFetch } from "./hooks/useFetch";
 
 // Define a URL da API onde os dados dos produtos serão buscados
@@ -14,8 +14,8 @@ function App() {
   // Declara um estado chamado `products` e a função `setProducts` para atualizá-lo
   const [products, setProducts] = useState([]);
 
-  // 04 - custom hook e  05 - refatorando POST
-  const { data: items, httpConfig, loading } = useFetch(url);
+  // 05 - custom hook e  06 - refatorando POST
+  const { data: items, httpConfig, loading, error } = useFetch(url);
 
 
   //Declara name e price
@@ -32,7 +32,7 @@ function App() {
 
     
 
-    //05 - POST refatorado com hook
+    //06 - POST refatorado com hook
 
     const product = {name, price};
     httpConfig(product, "POST");
@@ -49,8 +49,9 @@ function App() {
     <div className="App">
       
       <h1>Lista de Produtos</h1>
-      {/*06 - loading */}
+      {/*07 - loading */}
       {loading && <p>Carregando dados...</p>}
+      {error && <p>{error}</p>}
       <ul>
         {items &&
           items.map((product) => (
@@ -81,9 +82,9 @@ function App() {
               onChange={(e) => setPrice(e.target.value)}
             />
           </label>
-          {/*loading no post */}
+          {/* 08 - loading no post */}
           {loading &&  <input type="submit" value="Aguarde"  disabled/>}
-         {!loading &&  <input type="submit" value="Criar" />}
+         {!error &&  <input type="submit" value="Criar" />}
         </form>
       </div>
     </div>
