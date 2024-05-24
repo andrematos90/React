@@ -1,3 +1,7 @@
+comando de instalação: npm install react-router-dom
+
+
+
 O React Router é uma biblioteca padrão para roteamento em aplicativos React. Ele permite que os desenvolvedores criem uma navegação dinâmica de uma única página (SPA, do inglês "Single Page Application"), gerenciando as mudanças de URL e exibindo componentes diferentes com base na URL atual. Aqui estão alguns dos principais recursos e conceitos do React Router:
 
 Definição de Rotas: Você pode definir várias rotas dentro do seu aplicativo, onde cada rota está associada a um componente específico. Por exemplo, você pode ter uma rota /home que renderiza o componente Home e uma rota /about que renderiza o componente About.

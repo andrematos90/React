@@ -1,0 +1,45 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Camisa",
+      "price": 59.9
+    },
+    {
+      "id": "2",
+      "name": "Calça vermelha",
+      "price": 90
+    },
+    {
+      "id": "3",
+      "name": "Boné aba reta",
+      "price": 29.9
+    },
+    {
+      "id": "b6ad",
+      "name": "Casaco Nasa",
+      "price": "139.90"
+    },
+    {
+      "id": "6e51",
+      "name": "Jaqueta",
+      "price": "220"
+    },
+    {
+      "id": "f04d",
+      "name": "",
+      "price": ""
+    },
+    {
+      "id": "d8d7",
+      "name": "Camisa JEC",
+      "price": "180"
+    },
+    {
+      "id": "47f9",
+      "name": "Camisa  Preta",
+      "price": "32"
+    }
+   
+  ]
+}
