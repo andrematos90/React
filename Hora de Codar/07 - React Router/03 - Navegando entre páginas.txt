@@ -1,0 +1,2 @@
+- Para criar links paras as páginas vamos precisar utilizar o Link do React Router;
+- No link configuramos o parâmetro to, que recebe a URL/path que será redirecionado quando clicar no link;

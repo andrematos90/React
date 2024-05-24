@@ -1,0 +1,25 @@
+nav{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: #0000;
+    
+}
+
+
+nav a {
+    margin: 0 10px;
+    padding: 5px;
+    text-decoration: none;
+  
+}
+
+
+nav a:hover{
+    color: #ccc;
+}
+
+.active{
+    background-color: #0000;
+    color: #fff;
+}
