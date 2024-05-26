@@ -1,0 +1,125 @@
+Rotas dinâmicas em React são rotas que incluem parâmetros dinâmicos em seus caminhos, permitindo a renderização de componentes com base em variáveis na URL. Elas são úteis para criar rotas que precisam variar conforme algum valor específico, como IDs de itens, nomes de usuários, etc.
+
+O react-router-dom permite a definição de rotas dinâmicas usando o símbolo de dois pontos (:) seguido do nome do parâmetro. Por exemplo, uma rota para um perfil de usuário pode ser definida como /user/:id, onde :id é um parâmetro dinâmico que pode variar.
+
+Aqui está um exemplo passo a passo de como usar rotas dinâmicas:
+
+1. Definindo Rotas Dinâmicas
+No seu arquivo de configuração de rotas, defina uma rota que inclua um parâmetro dinâmico.
+
+App.js:
+
+
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navbar from './Navbar';
+import Home from './Home';
+import About from './About';
+import UserProfile from './UserProfile';
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/user/:id" element={<UserProfile />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+
+2. Acessando Parâmetros Dinâmicos
+Dentro do componente que é renderizado pela rota dinâmica, você pode acessar o valor do parâmetro usando o hook useParams do react-router-dom.
+
+UserProfile.js:
+
+
+import React from 'react';
+import { useParams } from 'react-router-dom';
+
+const UserProfile = () => {
+  const { id } = useParams();
+
+  return (
+    <div>
+      <h1>User Profile</h1>
+      <p>User ID: {id}</p>
+    </div>
+  );
+}
+
+export default UserProfile;
+
+3. Navegando para Rotas Dinâmicas
+Para navegar para uma rota dinâmica, você pode usar o componente Link ou a função useNavigate.
+
+Navbar.js:
+
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+import "./Navbar.css";
+
+const Navbar = () => {
+  return (
+    <nav>
+      <Link to="/">Home</Link>
+      <Link to="/about">Sobre</Link>
+      <Link to="/user/123">User Profile 123</Link>
+    </nav>
+  );
+}
+
+export default Navbar;
+Ou usando useNavigate em um componente:
+
+
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const NavigateButton = () => {
+  const navigate = useNavigate();
+
+  const goToUserProfile = () => {
+    navigate('/user/123');
+  };
+
+  return (
+    <button onClick={goToUserProfile}>Go to User 123 Profile</button>
+  );
+}
+
+export default NavigateButton;
+
+4. Manipulando Múltiplos Parâmetros
+Se precisar de múltiplos parâmetros, você pode defini-los na rota e acessá-los da mesma forma com useParams.
+
+App.js:
+
+<Route path="/user/:id/post/:postId" element={<UserPost />} />
+UserPost.js:
+
+
+import React from 'react';
+import { useParams } from 'react-router-dom';
+
+const UserPost = () => {
+  const { id, postId } = useParams();
+
+  return (
+    <div>
+      <h1>User Post</h1>
+      <p>User ID: {id}</p>
+      <p>Post ID: {postId}</p>
+    </div>
+  );
+}
+
+export default UserPost;
+
+Resumo
+Rotas dinâmicas permitem que você crie caminhos flexíveis e interativos na sua aplicação React, adaptando o conteúdo com base em parâmetros variáveis na URL. Usando react-router-dom, você pode facilmente definir e acessar esses parâmetros para renderizar componentes personalizados de acordo com a necessidade.
