@@ -1,0 +1,4 @@
+- GRaças ao passo dado na aula passado o carregamento individual de um produto será facil;
+- Vamos utilizar o id recebido para formar a nova URL;
+- E por fim podemos utilizar o hook useFetch par atrazer o item;
+- Por fim faremos a validação e impressão do mesmo no JSX;
