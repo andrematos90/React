@@ -12,3 +12,6 @@ em package.json em scripts:
     "server": "json-server --watch data/db.json"    <<<<<< adicionar
 
   },
+
+
+  para rodar comando: npm run server
