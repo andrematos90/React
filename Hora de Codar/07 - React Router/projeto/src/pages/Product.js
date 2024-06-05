@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 
 
@@ -7,11 +7,10 @@ const Product = () => {
     const {id} = useParams();  // const {id} = useParams(); faz referencia ao id da rota em App.js >>>   <Route path="products/:id" element={<Product />} />
 
     //5 - carregamento dado individual
-    const url = "http://localhost:3000/products" + id;
+    const url = "http://localhost:3000/products/" + id;
 
     const {data: product, loading, error} = useFetch(url);
-    console.log(product)
-;
+    console.log(product);
   return (
     <>
     <p>ID do produto: {id}</p>
@@ -21,6 +20,8 @@ const Product = () => {
       <div>
         <h1>{product.name}</h1>
         <p>R$ {product.price}</p>
+        {/*07 - nested routes*/}
+        <Link to={`/products/${product.id}/info`}>Mais informações</Link>
       </div>
     )}
     </>

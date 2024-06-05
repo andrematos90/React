@@ -1,0 +1,117 @@
+Nested routes em React referem-se a uma estrutura de roteamento onde uma rota pode conter outras rotas dentro dela, criando uma hierarquia ou estrutura aninhada. Isso é especialmente útil quando se deseja representar uma relação pai-filho entre diferentes partes da interface do usuário, como uma página principal com subseções ou uma dashboard com várias seções.
+
+Para ilustrar isso, vamos usar a biblioteca react-router-dom, que é a mais comum para gerenciamento de rotas em aplicações React.
+
+Exemplo Básico de Nested Routes
+
+
+Vamos criar alguns componentes simples para demonstrar as rotas aninhadas:
+
+
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+import Dashboard from './Dashboard';
+import Profile from './Profile';
+import Settings from './Settings';
+
+function App() {
+  return (
+    <Router>
+      <nav>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/dashboard">Dashboard</Link></li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/dashboard/*" element={<Dashboard />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+
+// Home.js
+import React from 'react';
+
+function Home() {
+  return <h2>Home</h2>;
+}
+
+export default Home;
+
+// About.js
+import React from 'react';
+
+function About() {
+  return <h2>About</h2>;
+}
+
+export default About;
+
+// Dashboard.js
+import React from 'react';
+import { Link, Routes, Route } from 'react-router-dom';
+import Profile from './Profile';
+import Settings from './Settings';
+
+function Dashboard() {
+  return (
+    <div>
+      <h2>Dashboard</h2>
+      <nav>
+        <ul>
+          <li><Link to="profile">Profile</Link></li>
+          <li><Link to="settings">Settings</Link></li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="profile" element={<Profile />} />
+        <Route path="settings" element={<Settings />} />
+      </Routes>
+    </div>
+  );
+}
+
+export default Dashboard;
+
+// Profile.js
+import React from 'react';
+
+function Profile() {
+  return <h2>Profile</h2>;
+}
+
+export default Profile;
+
+// Settings.js
+import React from 'react';
+
+function Settings() {
+  return <h2>Settings</h2>;
+}
+
+export default Settings;
+
+Como Funciona
+Roteamento Principal:
+No arquivo App.js, configuramos as rotas principais. Usamos <Routes> para definir as rotas e <Route> para cada caminho específico. A rota /dashboard/* indica que todas as sub-rotas de dashboard serão tratadas dentro do componente Dashboard.
+
+Roteamento Aninhado:
+No arquivo Dashboard.js, usamos <Routes> e <Route> novamente para definir as sub-rotas. Isso permite que a Dashboard tenha suas próprias rotas internas, como profile e settings.
+
+Navegação:
+Usamos <Link> para criar links de navegação. Dentro do Dashboard, os links para profile e settings são relativos à rota pai (dashboard).
+
+Benefícios
+Organização: Facilita a organização de componentes e rotas, especialmente em aplicações grandes.
+Modularidade: Componentes podem ser desenvolvidos e testados de forma modular.
+Leitura: Torna a estrutura de navegação mais clara e fácil de entender.
+Este é um exemplo básico, mas em projetos maiores, você pode estender essa estrutura com autenticação de rota, carregamento de dados assíncronos, e mais.
