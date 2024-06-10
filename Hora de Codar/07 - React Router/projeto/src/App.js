@@ -8,6 +8,7 @@ import Product from "./pages/Product";
 //components
 import Navbar from "./components/Navbar";
 import Info from "./pages/Info";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
            <Route path="/products/:id/info" element={<Info />} />
           {/*rota dinamica */}
           <Route path="/products/:id" element={<Product />} />
+          {/*no match route8*/}
+          <Route path="*" element={<NotFound/>}/>
 
         </Routes>
       </BrowserRouter>
