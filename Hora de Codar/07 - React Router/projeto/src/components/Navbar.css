@@ -19,7 +19,13 @@ nav a:hover{
     color: #ccc;
 }
 
-.active{
+.active {
     background-color: #0000;
     color: #fff;
+    border-radius: 5px;
+}
+
+.ativo{
+    background-color: #ccc;
+    border-radius: 5px;
 }
