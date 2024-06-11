@@ -1,6 +1,6 @@
 import "./App.css";
 // pacotes do React Router
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 //pages
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -30,6 +30,8 @@ function App() {
           <Route path="/products/:id" element={<Product />} />
            {/*search*/}
            <Route path="/search" element={<Search/>}/>
+           {/*redirect*/}
+           <Route path="/company" element={<Navigate to="/about"/>}/>
           {/*no match route8*/}
           <Route path="*" element={<NotFound/>}/>
 
