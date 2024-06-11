@@ -1,0 +1,111 @@
+- Searc Params é um recurso que permite obter o que vem na URL em forma de parâmetro, ex: produtos?q=camisa
+- Utilizamos o hook useSearcParams para obtê-los;
+-Com este recurso fica simples fazer uma funcionalidade de busca no sistema;
+
+
+Em React, searchParams se refere ao uso da API URLSearchParams do navegador, que permite manipular os parâmetros da string de consulta (query string) em uma URL. No contexto de React, é comum usar searchParams para ler e modificar esses parâmetros, especialmente em aplicações que utilizam roteamento, como aquelas construídas com React Router.
+
+Utilizando URLSearchParams com React Router
+Quando você usa o React Router, pode acessar os parâmetros da URL através do hook useLocation e depois manipular a string de consulta com URLSearchParams. Aqui está um exemplo de como fazer isso:
+
+Instale o React Router:
+Se ainda não tiver o React Router instalado, você pode instalá-lo usando npm ou yarn:
+
+
+npm install react-router-dom
+# ou
+yarn add react-router-dom
+Configuração Básica do Router:
+
+
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useLocation
+} from 'react-router-dom';
+
+const App = () => {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} />
+      </Switch>
+    </Router>
+  );
+};
+
+const Home = () => <h2>Home</h2>;
+const About = () => <h2>About</h2>;
+
+export default App;
+Usando URLSearchParams para Ler Parâmetros:
+
+
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+
+const useQuery = () => {
+  return new URLSearchParams(useLocation().search);
+};
+
+const About = () => {
+  const query = useQuery();
+  const name = query.get("name");
+  const age = query.get("age");
+
+  return (
+    <div>
+      <h2>About</h2>
+      <p>Name: {name}</p>
+      <p>Age: {age}</p>
+    </div>
+  );
+};
+
+export default About;
+Nesse exemplo, a função useQuery cria uma instância de URLSearchParams a partir da string de consulta da URL. No componente About, podemos então obter os valores dos parâmetros name e age usando os métodos get.
+
+Modificando os Parâmetros da URL:
+
+Para modificar os parâmetros da URL, você pode usar métodos como set e delete de URLSearchParams, e em seguida, atualizar o histórico do React Router para refletir as mudanças:
+
+
+import React from 'react';
+import { useLocation, useHistory } from 'react-router-dom';
+
+const useQuery = () => {
+  return new URLSearchParams(useLocation().search);
+};
+
+const About = () => {
+  const query = useQuery();
+  const history = useHistory();
+
+  const setName = () => {
+    query.set("name", "John");
+    history.push({ search: query.toString() });
+  };
+
+  return (
+    <div>
+      <h2>About</h2>
+      <button onClick={setName}>Set Name to John</button>
+    </div>
+  );
+};
+
+export default About;
+Nesse exemplo, ao clicar no botão, o parâmetro name na URL será definido como "John" e a URL será atualizada.
+
+Resumo
+searchParams em React é geralmente manipulado usando a API URLSearchParams.
+Com React Router, searchParams é frequentemente usado junto com o hook useLocation para ler e modificar a string de consulta da URL.
+É possível ler parâmetros usando o método get e modificar usando métodos como set e delete, seguido de uma atualização no histórico com history.push ou history.replace.
+
+
+
+
+

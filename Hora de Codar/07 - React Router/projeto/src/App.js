@@ -9,6 +9,8 @@ import Product from "./pages/Product";
 import Navbar from "./components/Navbar";
 import Info from "./pages/Info";
 import NotFound from "./pages/NotFound";
+import SearchForm from "./components/SearchForm";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
       {/*02 links com react router */}
       <BrowserRouter>
         <Navbar />
+        {/*search*/}
+        <SearchForm/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -24,6 +28,8 @@ function App() {
            <Route path="/products/:id/info" element={<Info />} />
           {/*rota dinamica */}
           <Route path="/products/:id" element={<Product />} />
+           {/*search*/}
+           <Route path="/search" element={<Search/>}/>
           {/*no match route8*/}
           <Route path="*" element={<NotFound/>}/>
 
