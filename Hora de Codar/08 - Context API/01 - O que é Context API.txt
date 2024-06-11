@@ -1,0 +1,126 @@
+- Um recurso que facilita o compartilhhamento de um estado entre componentes;
+- Ou seja, quando precisamo de dados "globais, provavelmente precisamos utilizar o Context;
+- O Context precisa encapsular os componentes que receberão seus valores, geralmente colocamos no App.js ou index.js;
+- Os contextos geralmente ficam na pasta context;
+
+
+
+A Context API é uma funcionalidade do React que permite a passagem de dados através da árvore de componentes sem a necessidade de passar explicitamente props em cada nível. Ela é útil para gerenciar estados globais ou compartilhar dados entre componentes que não têm uma relação direta de pai-filho.
+
+Quando Usar a Context API
+Estado Global: Quando você precisa de um estado ou dados acessíveis por muitos componentes, como temas, preferências de usuário, autenticação, etc.
+Evitar Prop Drilling: Quando você precisa passar dados através de muitos níveis de componentes, a Context API pode simplificar o código.
+Como Usar a Context API
+Criar um Contexto:
+
+import React, { createContext, useState } from 'react';
+
+// Cria um Contexto
+const MyContext = createContext();
+Provedor de Contexto:
+
+O provedor de contexto (Provider) fornece os dados para os componentes que estão interessados no contexto. Qualquer componente dentro do Provider pode acessar os dados do contexto.
+
+
+const MyProvider = ({ children }) => {
+  const [value, setValue] = useState("Hello, World!");
+
+  return (
+    <MyContext.Provider value={{ value, setValue }}>
+      {children}
+    </MyContext.Provider>
+  );
+};
+Consumir o Contexto:
+
+Você pode consumir o contexto usando o hook useContext ou o componente Consumer.
+
+Usando useContext:
+
+
+import React, { useContext } from 'react';
+
+const MyComponent = () => {
+  const { value, setValue } = useContext(MyContext);
+
+  return (
+    <div>
+      <p>{value}</p>
+      <button onClick={() => setValue("New Value")}>Change Value</button>
+    </div>
+  );
+};
+Usando Consumer:
+
+
+const MyComponent = () => (
+  <MyContext.Consumer>
+    {({ value, setValue }) => (
+      <div>
+        <p>{value}</p>
+        <button onClick={() => setValue("New Value")}>Change Value</button>
+      </div>
+    )}
+  </MyContext.Consumer>
+);
+Integrando o Provedor no Aplicativo:
+
+Você precisa envolver seus componentes ou a árvore de componentes com o provedor de contexto para que os dados possam ser acessados pelos componentes internos.
+
+
+const App = () => (
+  <MyProvider>
+    <MyComponent />
+  </MyProvider>
+);
+
+export default App;
+Exemplo Completo
+Aqui está um exemplo completo que mostra como criar e usar a Context API em um aplicativo React.
+
+
+import React, { createContext, useState, useContext } from 'react';
+import ReactDOM from 'react-dom';
+
+// Cria um Contexto
+const MyContext = createContext();
+
+const MyProvider = ({ children }) => {
+  const [value, setValue] = useState("Hello, World!");
+
+  return (
+    <MyContext.Provider value={{ value, setValue }}>
+      {children}
+    </MyContext.Provider>
+  );
+};
+
+const MyComponent = () => {
+  const { value, setValue } = useContext(MyContext);
+
+  return (
+    <div>
+      <p>{value}</p>
+      <button onClick={() => setValue("New Value")}>Change Value</button>
+    </div>
+  );
+};
+
+const App = () => (
+  <MyProvider>
+    <MyComponent />
+  </MyProvider>
+);
+
+ReactDOM.render(<App />, document.getElementById('root'));
+Benefícios da Context API
+Centralização do Estado: Permite centralizar estados e dados que precisam ser compartilhados por múltiplos componentes.
+Evita Prop Drilling: Facilita o compartilhamento de dados sem a necessidade de passar props manualmente em vários níveis da árvore de componentes.
+Facilidade de Uso: É simples de implementar e entender.
+A Context API é uma ferramenta poderosa no React para gerenciar dados globais de forma eficiente e simplificada.
+
+
+
+
+
+
