@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <NavLink to="/" className={styles.brand}>
-        Mini <span>Blog</span>
+        <span>Mini</span><i>Blog</i>
       </NavLink>
 
       <ul className={styles.links_list}> 
