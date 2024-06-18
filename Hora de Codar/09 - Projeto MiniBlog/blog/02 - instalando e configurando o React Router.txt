@@ -1,4 +1,10 @@
+ - instalar o router "npm i react-router-dom"
+ - em App.jsx importar "import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";"
+ - Criar as paginas de Home e About por exemplo
 
+ - configurar rotas >> 
+
+ 
 import './App.css'
 
 //router

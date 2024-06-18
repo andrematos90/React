@@ -1,4 +1,4 @@
 - criar o projeto react
 - configurar projeto no site do firebase
 - installar pacote do firebase "npm i firebase"
-- criar pasta firebase com o arquivo config.jsx e configurar
+- criar pasta firebase de dentro de "src" com o arquivo config.jsx e configurar
