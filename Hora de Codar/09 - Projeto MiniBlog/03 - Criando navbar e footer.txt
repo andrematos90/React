@@ -1,0 +1,52 @@
+- criar pasta components
+- dentro de components criar as pastsa navabar e os arquivos navbar.jsx e navbar.module.css
+e footer com footer.jsx e footer.module.css
+
+- em App.jsx adicionar as tags desses componentes >> 
+
+function App() {
+  return (
+    <>
+      <div className="App">
+        <BrowserRouter>
+          <Navbar />
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/About" element={<About />} />
+            </Routes>
+          </div>
+          <Footer />
+        </BrowserRouter>
+      </div>
+    </>
+  );
+}
+
+- implementar Navbar para que ela consiga alterar URl's
+   - importar NavLink   import { NavLink } from "react-router-dom";
+   - configurar as rotas >> 
+
+
+const Navbar = () => {
+  return (
+    <nav>
+      <NavLink to="/">
+        Mini <span>Blog</span>
+      </NavLink>
+
+      <ul>
+        <li>
+          <NavLink to="/">Home</NavLink>
+        </li>
+        <li>
+          <NavLink to="About">Sobre</NavLink>
+        </li>
+      </ul>
+    </nav>
+  );
+};
+
+export default Navbar;
+
+
