@@ -6,6 +6,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 //pages
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
+import Login from "./pages/Login/Login"
+import Register from "./pages/Register/Register"
+
 
 //components
 import Navbar from "./components/Navbar/Navbar";
@@ -21,6 +24,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/About" element={<About />} />
+              <Route path="/Login" element={<Login/>} />
+              <Route path="/Register" element={<Register/>} />
             </Routes>
           </div>
           <Footer />

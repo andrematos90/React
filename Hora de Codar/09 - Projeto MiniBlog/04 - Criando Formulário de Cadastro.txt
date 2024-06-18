@@ -1,5 +1,22 @@
-import { NavLink } from "react-router-dom";
-import styles from './../Navbar/Navbar.module.css'
+- Criar pastas Login e Register com os arquivos jsx e css
+
+- em App.jsx criar rotas:
+
+            <div className="container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/About" element={<About />} />
+              <Route path="/Login" element={<Login/>} />
+              <Route path="/Register" element={<Register/>} />
+            </Routes>
+          </div>
+
+
+
+
+
+
+- em navbar criar o caminho que leva as rotas:
 
 
 const Navbar = () => {
@@ -28,4 +45,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+- Criar páina de Registro e Login
