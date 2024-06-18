@@ -1,0 +1,65 @@
+- importar useState e criar as váriaves iniciando vazias, elas salvaram os dados que o usuário digitar no formulário
+
+import { useState } from 'react'
+
+const Register = () => {
+
+  const [displayName, setDisplayName] = useState("");
+  const [email, setEmail] = useState("");
+  const [ password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("")
+
+
+- criar a variável que armanezara um erro se houver 
+
+ const [error, setError]= useState("");
+
+
+ - criar método que vai enviar p formulário
+
+
+ const handleSubmit = (e) =>{
+    e.preventDefault()
+  }
+
+  e no formulário declarar a chamada desse método "form onSubmit={handleSubmit}>"
+
+
+
+
+
+  - linkar os states as values do formulário em cada campo exemplo:
+
+       <label>
+        <span> <i>Nome:</i></span>
+          <input 
+          type="text"
+          name='displayName'
+          required
+          placeholder='Nome do usuário'
+          value={displayName}  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< atribui displayName ao value
+          onChange={(e) => setDisplayName(e.target.value)} /> <<<<<<<<<<<<<<<<<<<<<<<< preenche o valor dos states ou seja seta a váriavel "displayName" com o value
+        </label>
+
+
+
+- criar objeto que receberá os valores dos inputs:
+
+ const user = { 
+      displayName,
+      email,
+      password
+    }
+
+
+- criar validações:
+
+
+ if(password != confirmPassword){
+      setError("As Senhas não são iguais")
+      return
+    }
+    
+
+se houver erro exibe a msg
+{error && <p className='error'>{error}</p>}
