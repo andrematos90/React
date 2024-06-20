@@ -24,4 +24,16 @@ export const useAuthentication = () =>{
             return;
         }
     }
+
+    const createUSer = async (data) => {
+        checkIfIsCancelled()
+
+        setLoading(true)
+
+        try{
+
+        }catch(error){
+        
+        }
+    }
 }
