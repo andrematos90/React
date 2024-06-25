@@ -8,6 +8,10 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 0 20px; /* Adiciona espaçamento horizontal nas bordas */
+    position: fixed; /* Fixa o header no topo */
+    top: 0; /* Posiciona o header no topo da página */
+    left: 0; /* Garante que o header se estenda da esquerda para a direita */
+    z-index: 1000; /* Garante que o header fique acima de outros elementos */
 }
 
 .logo{
