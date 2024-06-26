@@ -29,7 +29,9 @@ function App() {
         empresa={company}
         fnc={imprimeNumero}
         somar={somar}
+
       />
+
 
       <Footer />
     </>
