@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './../History/History.module.css'
+import styles from './../history/History.module.css'
 
 const History = () => {
   return (

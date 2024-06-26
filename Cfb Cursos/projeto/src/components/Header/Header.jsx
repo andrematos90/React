@@ -1,16 +1,16 @@
 import React from "react";
-import "../Header/Header.css";
-import logo from "../../assets/images/logo.jpg";
-import Contacts from "./../../pages/Contatcs/Contatcts";
-import About from "../../pages/About/About";
-import History from "../../pages/History/History";
+import styles from './../header/Header.module.css'
+import logo from './../../assets/images/nasa_logo.png'
+import Contacts from './../contacts/Contacts';
+import About from './../../pages/about/About';
+import History from "../../pages/history/History";
 
 const Header = () => {
   return (
     <>
-      <div className="header">
-        <img src={logo} alt="logo" className="logo" />
-        <div className="pages">
+      <div className={styles.component}>
+       <div> <img src={logo} alt="logo" className={styles.logo} /></div>
+        <div className={styles.pages}>
           <Contacts />
           <About />
           <History />

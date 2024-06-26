@@ -1,17 +1,19 @@
 import './App.css'
-import Footer from './components/Footer/Footer'
-import  Header  from './components/Header/Header'
-import Home from './pages/Home/Home'
+import Home from './pages/home/Home'
+import Header from './components/header/Header'
+import Footer from './components/footer/Footer'
 
 function App() {
-  
+
+  const rocket = 'Falcon 9';
+  const company = 'SpaceX';
+ 
 
   return (
     <>
     <Header/>
-    <Home/>
+    <Home msg={"Olá React!"} nome={"Binzão"} rocket ={rocket} empresa = {company}/>
     <Footer/>
-    
     </>
   )
 }

@@ -1,17 +1,5 @@
 .component{
-  
-    height: 100vh; /* Garante que o elemento tenha a altura da viewport */
-    width: 100vw; /* Garante que o elemento tenha a largura da viewport */
-    background-image: url(../../assets/images/footerwallpaper.jpg);
-    background-size: cover; /* Faz a imagem cobrir toda a área */
-    background-position: center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Impede que a imagem se repita */
-  
-}
-
-.title {
-    color: white; /* Cor do texto */
-    font-size: 3rem; /* Tamanho da fonte */
-    text-align: center; /* Alinhamento do texto */
-    /* Certifique-se de que o texto é visível contra o fundo */
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
 }
