@@ -8,11 +8,6 @@ const Home = (props) => {
     fontSize: '30px'
   }
 
-   const soma = () =>{
-    return props.setNumero(1)
-   }
-
-
   return (
     <div className={styles.component}>
       <h1>What is Lorem Ipsum?</h1>
@@ -143,10 +138,11 @@ const Home = (props) => {
       <h1 style={estilo}>Texto de exemplo</h1>
 
       <p className={styles.numero}>Numero renderizado em Home: {props.numero}</p>
-      <button onClick={() => props.setNumero(props.numero + 1)}>mais 1</button>
+      <button onClick={()=>{props.setNumero(props.numero + 1)}}>mais 1</button>
 
     </div>
   );
 };
+
 
 export default Home;
