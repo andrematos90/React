@@ -7,6 +7,12 @@ const Home = (props) => {
     color: 'green',
     fontSize: '30px'
   }
+
+   const soma = () =>{
+    return props.setNumero(1)
+   }
+
+
   return (
     <div className={styles.component}>
       <h1>What is Lorem Ipsum?</h1>
@@ -135,6 +141,9 @@ const Home = (props) => {
       {/*CSS inline */}
       <h1 style={{color: "orange", fontSize : "10px"}}>Textp de exemplo</h1>
       <h1 style={estilo}>Texto de exemplo</h1>
+
+      <p className={styles.numero}>Numero renderizado em Home: {props.numero}</p>
+      <button onClick={() => props.setNumero(props.numero + 1)}>mais 1</button>
 
     </div>
   );

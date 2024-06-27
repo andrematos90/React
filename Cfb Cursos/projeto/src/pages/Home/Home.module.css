@@ -3,3 +3,13 @@
     flex-direction: column;
     margin: 10px;
 }
+
+.numero {
+    background-color: blue;
+    width: 100px;
+    color: white;
+}
+
+button{
+    width: 50px;
+}

@@ -2,6 +2,7 @@ import "./App.css";
 import Home from "./pages/home/Home";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import { useState } from "react";
 
 function App() {
   const rocket = "Falcon 9";
@@ -15,6 +16,10 @@ function App() {
   const somar = (v1, v2) =>{
     return v1 + v2
   }
+
+
+  //usando states
+  const [numero, setNumero] = useState(0);
 
   return (
     <>
@@ -30,7 +35,12 @@ function App() {
         fnc={imprimeNumero}
         somar={somar}
 
+        numero = {numero}
+        setNumero = {setNumero}
       />
+
+      <p className="numero">Numero renderizado em App:{numero}</p>
+    
 
 
       <Footer />
