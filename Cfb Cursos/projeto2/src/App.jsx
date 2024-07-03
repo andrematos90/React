@@ -53,7 +53,8 @@ function App() {
     </select>
 
 
-    <h1>{empresa}</h1>
+
+    <h1>empresa selecionada:{empresa}</h1>
 
       
     </>
