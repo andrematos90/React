@@ -1,0 +1,62 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    right: 0; /* Alinha as divs ao canto superior direito */
+    background-color: #000;
+    color: antiquewhite;
+  }
+  
+  .hist, .abou, .soci, .par, .log {
+    margin: 5px 0;
+    padding: 10px;
+    position: relative;
+    border: 1px solid #000;
+  }
+  
+  .hist:hover::after, .abou:hover::after, .soci:hover::after, .par:hover::after, .log:hover::after,
+  .hist:hover::before, .abou:hover::before, .soci:hover::before, .par:hover::before, .log:hover::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+  }
+  
+  .hist:hover::after, .abou:hover::after, .soci:hover::after, .par:hover::after, .log:hover::after {
+    background: #7CFC00;
+    box-shadow: 0 0 8px 4px #00FF00;
+    animation: spark-trail 2s linear infinite;
+  }
+  
+  .hist:hover::before, .abou:hover::before, .soci:hover::before, .par:hover::before, .log:hover::before {
+    background: #7CFC00	;
+    box-shadow: 0 0 6px 3px #ADFF2F;
+    animation: spark-trail 2s linear infinite;
+    animation-delay: 0.1s; /* Slight delay to create trailing effect */
+  }
+  
+  @keyframes spark-trail {
+    0% {
+      top: -2px;
+      left: -2px;
+    }
+    25% {
+      top: -2px;
+      left: calc(100% - 2px);
+    }
+    50% {
+      top: calc(100% - 2px);
+      left: calc(100% - 2px);
+    }
+    75% {
+      top: calc(100% - 2px);
+      left: -2px;
+    }
+    100% {
+      top: -2px;
+      left: -2px;
+    }
+  }
+  
