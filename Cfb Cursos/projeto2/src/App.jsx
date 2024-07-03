@@ -12,10 +12,13 @@ function App() {
    const [nome, setNome] = useState();
 
 
-   const handleChangeName = (e) =>{
-    setNome(e.target.value);
+   const handleChangeName = (evento) =>{
+    setNome(evento.target.value);
 
    }
+
+
+   const [empresa, setEmpresa] = useState('');
 
 
   return (
@@ -31,12 +34,26 @@ function App() {
    {/*manipulando formulários */}
     <form>
       <label>Digite seu nome</label>
-      <input type="text" name='nome' value={nome}  onChange={(e)=>handleChangeName(e)}/>
+      <input type="text" name='nome' value={nome}  onChange={(evento)=>handleChangeName(evento)}/>
      
     </form>
 
 
     <h1>Nome:</h1> <p>{nome}</p>
+    <br />
+
+
+    <label>Selecione uma empresa</label>
+    <select value={empresa} onChange={(evento)=>setEmpresa(evento.target.value)}>
+      <option value="Petrobras">Petrobras</option>
+      <option value="SpaceX">SpaceX</option>
+      <option value="Embraer">Embraer</option>
+      <option value="Amazon">Amazon</option>
+      <option value="Vale">Vale</option>
+    </select>
+
+
+    <h1>{empresa}</h1>
 
       
     </>
