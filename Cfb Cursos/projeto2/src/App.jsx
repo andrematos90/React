@@ -20,6 +20,19 @@ function App() {
 
    const [empresa, setEmpresa] = useState('');
 
+   const[form, setForm] = useState({nome:"", sobrenome:"", profissao:""})
+
+
+   const handleFormChange= (e) =>{
+    if(e.target.getAttribute('name') == 'fnome'){
+      setForm({"nome":e.target.value, "curso" :form.curso, "ano":form.ano})
+    }else if(e.targe.getAttribute('name') == 'fcurso'){
+      setForm({"nome": form.nome,"curso":e.target.value, "ano":form.ano})
+    }else if(e.target.getAttribute('name')=='fano'){
+      setForm({"nome":form.nome, "curso":form.curso, "ano":e.target.value})
+    }
+   }
+
 
   return (
     <>
@@ -56,7 +69,22 @@ function App() {
 
     <h1>empresa selecionada:{empresa}</h1>
 
-      
+
+    <label>Nome:
+      <input type="text" name='fnome' value={form.nome} onChange={(e)=>handleFormChange(e)}/>
+    </label>
+
+    <label>Sobrenome:
+      <input type="text" name='fnome' value={form.sobrenome} onChange={(e)=>handleFormChange(e)}/>
+    </label>
+
+    <label>Profissão:
+      <input type="text" name='fnome' value={form.profissao} onChange={(e)=>handleFormChange(e)}/>
+    </label>
+
+      <h1>{form.nome}</h1>
+      <h1>{form.sobrenome}</h1>
+      <h1>{form.profissao}</h1>
     </>
   )
 }
