@@ -25,11 +25,11 @@ function App() {
 
    const handleFormChange= (e) =>{
     if(e.target.getAttribute('name') == 'fnome'){
-      setForm({"nome":e.target.value, "curso" :form.curso, "ano":form.ano})
+      setForm({"nome":e.target.value, "curso" :form.curso, "ano":form.ano}) //atualiza o nome
     }else if(e.targe.getAttribute('name') == 'fcurso'){
-      setForm({"nome": form.nome,"curso":e.target.value, "ano":form.ano})
+      setForm({"nome": form.nome,"curso":e.target.value, "ano":form.ano}) // atualiza o curso
     }else if(e.target.getAttribute('name')=='fano'){
-      setForm({"nome":form.nome, "curso":form.curso, "ano":e.target.value})
+      setForm({"nome":form.nome, "curso":form.curso, "ano":e.target.value}) // atualiza o ano
     }
    }
 
