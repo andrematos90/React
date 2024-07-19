@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Result from "./components/result/Result";
+import Note from "./components/note/Note";
+
+import "./App.css";
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [nota1, setNota1] = useState(0);
+  const [nota2, setNota2] = useState(0);
+  const [nota3, setNota3] = useState(0);
+  const [nota4, setNota4] = useState(0);
+  const [nota5, setNota5] = useState(0);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <h1>Soma de notas</h1>
+      <Note num={1} nota={nota1} setNota={setNota1}/>
+      <Note num={2} nota={nota2} setNota={setNota2}/>
+      <Note num={3} nota={nota3} setNota={setNota3}/>
+      <Note num={4} nota={nota4} setNota={setNota4}/> 
+      <Note num={5} nota={nota5} setNota={setNota5}/>
+
+      <Result  somaNotas={parseFloat(nota1) + parseFloat(nota2) + parseFloat(nota3) + parseFloat(nota4) + parseFloat(nota5) }/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
