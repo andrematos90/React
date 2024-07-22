@@ -3,8 +3,12 @@ import Note from "./components/note/Note";
 
 import "./App.css";
 import { useState, useEffect } from "react";
+import Frase from "./components/frase/Frase";
+import Exemplo from "./components/exemplo/Exemplo";
 
 function App() {
+
+  //elevação de state
   const [nota1, setNota1] = useState(0);
   const [nota2, setNota2] = useState(0);
   const [nota3, setNota3] = useState(0);
@@ -12,6 +16,8 @@ function App() {
   const [nota5, setNota5] = useState(0);
 
 
+
+  //uso do useEffect
   const [numero, setNumero] = useState(0);
 
 useEffect(
@@ -21,6 +27,8 @@ useEffect(
 
   const conta = () =>{
     setNumero(numero + 1)}
+
+//contenção
     
 
   return (
@@ -37,6 +45,16 @@ useEffect(
       <button onClick={(conta)}>+1</button>
 
       <h1>{numero}</h1>
+
+      <Frase expl='essa frase esta sendo passada por parametros e acessada no componente através de props'>
+        
+        <h1>este h1 esta sendo passado através de prop children</h1>
+        <h2>este h2 tambem</h2>
+        <h3>este h3 não vai aparecer  pq no componente "Frase" não foi utilizado</h3>
+
+        <Exemplo/>
+
+      </Frase>
    
     </>
   );
