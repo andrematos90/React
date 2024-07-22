@@ -2,7 +2,7 @@ import Result from "./components/result/Result";
 import Note from "./components/note/Note";
 
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [nota1, setNota1] = useState(0);
@@ -10,6 +10,18 @@ function App() {
   const [nota3, setNota3] = useState(0);
   const [nota4, setNota4] = useState(0);
   const [nota5, setNota5] = useState(0);
+
+
+  const [numero, setNumero] = useState(0);
+
+useEffect(
+  ()=>console.log("useEffect é chamado quando a página é carregada ou alterada")
+)
+  
+
+  const conta = () =>{
+    setNumero(numero + 1)}
+    
 
   return (
     <>
@@ -21,6 +33,11 @@ function App() {
       <Note num={5} nota={nota5} setNota={setNota5}/>
 
       <Result  somaNotas={parseFloat(nota1) + parseFloat(nota2) + parseFloat(nota3) + parseFloat(nota4) + parseFloat(nota5) }/>
+
+      <button onClick={(conta)}>+1</button>
+
+      <h1>{numero}</h1>
+   
     </>
   );
 }
