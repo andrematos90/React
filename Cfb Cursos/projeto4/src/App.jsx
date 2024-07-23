@@ -7,7 +7,7 @@ function App() {
     <>
     <MinhaClasse atributo="atributo passado por propriedade ao componente"/>
     
-    <StatesEmComponentesDeClasse/>
+    <StatesEmComponentesDeClasse fator={10}/>
      
     </>
   )
