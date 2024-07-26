@@ -1,0 +1,172 @@
+Enviar funções para componentes em React é uma prática comum, especialmente quando você deseja que componentes filhos possam executar ações definidas no componente pai. Isso é feito passando a função como uma prop para o componente filho. Aqui está um guia detalhado sobre como fazer isso:
+
+1. Criando uma Função no Componente Pai
+Primeiro, você cria a função no componente pai que deseja passar para o componente filho.
+
+import React from 'react';
+
+class App extends React.Component {
+  handleButtonClick = () => {
+    alert('Botão clicado!');
+  };
+
+  render() {
+    return (
+      <div>
+        <h1>Componente Pai</h1>
+        <Botao aoClicar={this.handleButtonClick} />
+      </div>
+    );
+  }
+}
+
+export default App;
+
+
+2. Passando a Função como Prop
+No exemplo acima, a função handleButtonClick é passada como a prop aoClicar para o componente Botao.
+
+
+3. Acessando e Usando a Função no Componente Filho
+No componente filho, você acessa a função passada como uma prop e a utiliza normalmente.
+
+
+import React from 'react';
+
+function Botao({ aoClicar }) {
+  return (
+    <button onClick={aoClicar}>
+      Clique aqui
+    </button>
+  );
+}
+
+export default Botao;
+Exemplo Completo
+Aqui está um exemplo completo que inclui ambos os componentes:
+
+App.js
+
+import React from 'react';
+import Botao from './Botao';
+
+class App extends React.Component {
+  handleButtonClick = () => {
+    alert('Botão clicado!');
+  };
+
+  render() {
+    return (
+      <div>
+        <h1>Componente Pai</h1>
+        <Botao aoClicar={this.handleButtonClick} />
+      </div>
+    );
+  }
+}
+
+export default App;
+
+
+
+
+
+
+Botao.js
+
+import React from 'react';
+
+function Botao({ aoClicar }) {
+  return (
+    <button onClick={aoClicar}>
+      Clique aqui
+    </button>
+  );
+}
+
+
+
+export default Botao;
+Usando Funções com Hooks
+Se estiver usando componentes funcionais com hooks, a abordagem é semelhante.
+
+App.js
+
+import React from 'react';
+import Botao from './Botao';
+
+function App() {
+  const handleButtonClick = () => {
+    alert('Botão clicado!');
+  };
+
+  return (
+    <div>
+      <h1>Componente Pai</h1>
+      <Botao aoClicar={handleButtonClick} />
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+Botao.js
+
+import React from 'react';
+
+function Botao({ aoClicar }) {
+  return (
+    <button onClick={aoClicar}>
+      Clique aqui
+    </button>
+  );
+}
+
+export default Botao;
+
+
+
+
+
+Passando Funções com Parâmetros
+
+Se precisar passar funções que aceitam parâmetros, você pode fazer isso usando uma função de callback.
+
+App.js
+
+import React from 'react';
+import Botao from './Botao';
+
+function App() {
+  const handleButtonClick = (mensagem) => {
+    alert(mensagem);
+  };
+
+  return (
+    <div>
+      <h1>Componente Pai</h1>
+      <Botao aoClicar={() => handleButtonClick('Botão clicado!')} />
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+Botao.js
+import React from 'react';
+
+function Botao({ aoClicar }) {
+  return (
+    <button onClick={aoClicar}>
+      Clique aqui
+    </button>
+  );
+}
+
+export default Botao;

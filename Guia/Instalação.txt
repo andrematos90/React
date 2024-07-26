@@ -1,0 +1,14 @@
+Usando Create React App
+Create React App é uma maneira fácil de começar com React. Ele configura um novo projeto React com todas as ferramentas necessárias. Para usá-lo, você precisa ter o Node.js e o npm (ou yarn) instalados.
+
+
+npx create-react-app meu-app
+cd meu-app
+npm start
+
+Isso criará um novo diretório meu-app com um projeto React configurado e o iniciará no navegador.
+
+
+Usando o vite
+
+npm create vite@latest

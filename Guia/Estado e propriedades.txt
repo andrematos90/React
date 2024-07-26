@@ -1,0 +1,90 @@
+Estado
+O estado (state) é usado para armazenar dados que podem mudar ao longo do tempo. Apenas componentes de classe e componentes de função usando hooks podem ter estado.
+
+
+
+
+Estados em Componentes de Classe
+
+Em componentes de classe, o estado é gerenciado através de um objeto state. Você define o estado inicial no construtor da classe e usa o método setState para atualizar o estado. Aqui está um exemplo básico:
+
+
+import React, { Component } from 'react';
+
+class MeuComponente extends Component {
+  constructor(props) {
+    super(props);
+    // Define o estado inicial
+    this.state = {
+      contador: 0
+    };
+  }
+
+  incrementar = () => {
+    this.setState((prevState) => ({
+      contador: prevState.contador + 1
+    }));
+  }
+
+  render() {
+    return (
+      <div>
+        <p>Contador: {this.state.contador}</p>
+        <button onClick={this.incrementar}>Incrementar</button>
+      </div>
+    );
+  }
+}
+
+export default MeuComponente;
+
+
+
+
+
+
+
+Estados em Componentes Funcionais
+
+
+Nos componentes funcionais, o hook useState é utilizado para gerenciar o estado. Este hook retorna um array com dois elementos: o estado atual e uma função para atualizá-lo. Aqui está um exemplo básico:
+
+
+import React, { useState } from 'react';
+
+const MeuComponenteFuncional = () => {
+  // Define o estado inicial
+  const [contador, setContador] = useState(0);
+
+  const incrementar = () => {
+    setContador(contador + 1);
+  }
+
+  return (
+    <div>
+      <p>Contador: {contador}</p>
+      <button onClick={incrementar}>Incrementar</button>
+    </div>
+  );
+}
+
+export default MeuComponenteFuncional;
+
+
+
+
+Comparação
+
+Componentes de Classe:
+
+Usa this.state para acessar o estado e this.setState para atualizá-lo.
+É necessário um construtor para inicializar o estado.
+Métodos de ciclo de vida como componentDidMount, componentDidUpdate e componentWillUnmount são usados para controlar o ciclo de vida do componente.
+
+Componentes Funcionais:
+
+Usa o hook useState para gerenciar o estado.
+Não há necessidade de um construtor; o estado é definido diretamente na função.
+Hooks como useEffect são usados para controlar efeitos colaterais, substituindo os métodos de
+
+
