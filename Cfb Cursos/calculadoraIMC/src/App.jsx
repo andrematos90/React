@@ -10,6 +10,10 @@ const TabelaIMC = () => {
         </tr>
       </thead>
       <tbody>
+      <tr>
+          <td>Abaixo do Peso</td>
+          <td>abaixo 18,5</td>
+        </tr>
         <tr>
           <td>Peso Normal</td>
           <td>entre 18,5 e 24,9</td>
