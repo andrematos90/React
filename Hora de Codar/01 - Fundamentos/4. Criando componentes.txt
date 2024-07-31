@@ -1,32 +1,65 @@
-Passo 01:
-Dentro da pasta do seu projeto, crie uma pasta "componentes" e um  novo arquivo para o seu componente. Vamos chamá-lo de Saudacao.js ou Saudacao.jsx.
+1 - Criar pasta "components" em "src"
 
+COMPONENTE FUNCIONAL
 
-// FirstComponent.js
+2 - Dentro da pasta components criar o arquivo MeuComponente.jsx
+
+3 - Componente:
+
 import React from 'react';
 
-class FirstComponent extends React.Component {
+const MeuComponente = () => {
+  return (
+    <div>
+      <h1>Bem-vindo ao meu app React!</h1>
+    </div>
+  );
+};
+
+export default MeuComponente;
+
+
+COMPONENT DE CLASSE 
+
+Componentes de classe são definidos como classes em JavaScript e precisam estender React.Component. 
+Eles têm um método render que retorna o JSX. Componentes de classe são úteis quando você precisa de 
+funcionalidades adicionais, como métodos de ciclo de vida ou estado antes da introdução dos hooks.
+
+3 - Componente:
+
+
+import React, { Component } from 'react';
+
+class MeuComponente extends Component {
   render() {
     return (
       <div>
-        <h1>Meu primeiro componente</h1>
+        <h1>Bem-vindo ao meu app React!</h1>
       </div>
     );
   }
 }
 
+export default MeuComponente;
 
-ou com arrow function:
-const FirstComponent = () =>{
-    return (
-        <div>
-            <h1>Meu primeiro Componente</h1>
-        </div>
-    )
-}
+Comparação entre Componentes Funcionais e de Classe
+Componentes Funcionais:
 
-export default FirstComponent;
+Mais simples e fáceis de ler.
+Melhor desempenho em alguns casos porque são menos complexos.
+Desde a introdução dos hooks, podem utilizar estado (useState) e efeitos (useEffect).
 
+
+
+Componentes de Classe:
+
+Mais verbosos, exigem a definição da classe e o método render.
+Utilizam estado e métodos de ciclo de vida diretamente.
+Antes dos hooks, eram necessários para funcionalidades mais avançadas.
+
+Quando usar cada um?
+Use componentes funcionais sempre que possível, pois são mais simples e a partir do React 16.8 com hooks, eles podem fazer quase tudo que os componentes de classe fazem.
+Use componentes de classe se você está trabalhando em um código legado ou precisa de funcionalidades que são mais fáceis de implementar com classes (embora isso seja raro com os hooks disponíveis).
 
 
 
