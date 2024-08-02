@@ -1,6 +1,6 @@
 
 import './App.css';
-import BandeiraSantaCatarina from '../src/assets/Bandeira Santa Catarina.png';
+import CitroenC5 from '../src/assets/Citroën_C5_2008.jpg';
 import ManageData from './components/ManageData';
 import ListRender from './components/ListRender';
 import PreviousState from './components/PreviousState';
@@ -49,10 +49,10 @@ function App() {
     <div>
       <div>
       {/*adicionando imagem da pasta public */}
-      <img src="Bandeira_do_Rio_Grande_do_Sul.svg.webp" alt="Bandeira Rio Grandense do Sul" />
+      <img src="Twingo Renault 2001.jpeg" alt="Twingo" />
 
       {/*adicionando imagem da pastas assets*/}
-      <img src={BandeiraSantaCatarina} alt="Bandeira do Estado de Santa Catarina" />
+      <img src={CitroenC5} alt="Citroen C5" />
 
     </div>
     <div>
