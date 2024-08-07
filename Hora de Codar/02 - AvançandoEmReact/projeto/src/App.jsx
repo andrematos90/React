@@ -14,6 +14,7 @@ import { useState } from 'react';
 import Message from './components/Message';
 import ChangeMessageState from './components/ChangeMessageState';
 import AnimalDetails  from './components/AnimalDetails';
+import RenderizaLista from './components/RenderizaLista';
 
 
 function App() {
@@ -97,6 +98,8 @@ function App() {
       {animals.map((animals) =>(
         <AnimalDetails name={animals.name} especie={animals.especie} idade={animals.idade} key={animals.id}/>
       ))}
+
+      <RenderizaLista/>
 
     </div>
     </div>
