@@ -28,3 +28,20 @@ function Counter() {
 export default Counter;
 
 Neste exemplo, prevState (o estado anterior) é representado pelo argumento passado para a função que atualiza o estado (setCount). Usar prevState garante que você está atualizando o estado com base no valor mais recente do estado, evitando problemas de sincronização de estado. Isso é especialmente útil em casos onde várias atualizações de estado podem ocorrer de forma assíncrona.
+
+
+
+Quando se fala em "estado anterior" em React, isso se refere ao estado da renderização imediatamente anterior, e não ao estado inicial da primeira renderização.
+
+Aqui está a diferença:
+
+Estado Inicial: É o valor do estado quando o componente é renderizado pela primeira vez. Esse valor é definido no useState ou em outro mecanismo de estado quando o componente é montado.
+
+Estado Anterior: É o valor do estado na última vez que o componente foi renderizado antes da renderização atual. Cada vez que o estado é atualizado e o componente é renderizado novamente, o "estado anterior" é o valor que o estado tinha antes dessa atualização.
+
+Por exemplo, se você tem um contador que começa em 0 e você clica em um botão que incrementa esse contador de 1 em 1:
+
+Primeira renderização: O estado é 0 (estado inicial).
+Clique no botão: O estado passa para 1. O "estado anterior" era 0.
+Clique novamente no botão: O estado passa para 2. O "estado anterior" era 1.
+Em cada atualização, o "estado anterior" refere-se ao valor do estado antes dessa última atualização, não ao estado inicial do componente.
