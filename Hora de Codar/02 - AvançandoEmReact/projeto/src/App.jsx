@@ -82,7 +82,7 @@ function App() {
       <Fragment propFragment="teste"/>
 
       {/*prop children*/}
-      <Container myValue="valor passado como prop">
+      <Container myValue="a tag <p> só vai ser renderizada se usar a prop 'children'">
         <p>este é o conteudo</p>
       </Container>
 

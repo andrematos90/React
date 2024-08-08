@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ChangeMessageState(handleMessage) {
+function ChangeMessageState({handleMessage}) {
     const messages = ["oi", "ola", "oi tudo bem? S2"];
   return (
 
