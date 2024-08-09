@@ -1,0 +1,10 @@
+.detalhes-carros{
+    margin: 10px;
+    border: 1px solid goldenrod;
+    width: 150px;
+    height: 200px;
+}
+
+h1{
+    color: blue;
+}
