@@ -34,6 +34,8 @@ function App() {
   }, []); // O array vazio significa que este efeito será executado apenas uma vez, após a montagem do componente
 
 
+
+
   //03 - adição de produtos
 
   const handleSubmit = async(e) => {
