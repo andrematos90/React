@@ -1,11 +1,6 @@
 {
   "products": [
     {
-      "id": "1",
-      "name": "Camisa",
-      "price": 59.9
-    },
-    {
       "id": "2",
       "name": "Calça vermelha",
       "price": 90
@@ -49,6 +44,11 @@
       "id": "cfa2",
       "name": "teste2",
       "price": "2"
+    },
+    {
+      "id": "6a76",
+      "name": "teste3",
+      "price": "1"
     }
   ]
 }
