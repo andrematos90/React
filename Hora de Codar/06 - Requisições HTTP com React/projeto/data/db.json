@@ -39,7 +39,16 @@
       "id": "47f9",
       "name": "Camisa  Preta",
       "price": "32"
+    },
+    {
+      "id": "4938",
+      "name": "teste",
+      "price": "1"
+    },
+    {
+      "id": "cfa2",
+      "name": "teste2",
+      "price": "2"
     }
-   
   ]
 }
