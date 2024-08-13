@@ -1,3 +1,13 @@
  - Se a requisição foi feita com sucesso, podemos adicionar o item a lista após o request;
  - Isso torna nossa aplicação mais performática;
  - Utilizaremos o set do useState para isso;
+
+
+ const addedProduct = await requisicao.json()
+
+ setProducts((prevProducts) => [...prevProducts, addedProduct])
+
+
+prevProducts é a lista de produtos antes do novo produto adicionado
+
+addedProduct é a nova lista ja com o novo produto adicionado, foi pego o "res" que é um string em Json  e convertido para objeto javascript
