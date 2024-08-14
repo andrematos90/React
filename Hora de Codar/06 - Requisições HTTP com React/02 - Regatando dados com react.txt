@@ -1,3 +1,95 @@
 - primeiro ter um local para salvá-los (usando useState)
 - renderizar a chamada a API appenas uma uma vez (useEffect)
 - um meio de fazer a requisição assincrona (Fetch API)
+
+
+Passo a Passo: Requisição HTTP GET em React
+1. Importação dos Hooks Necessários
+Primeiramente, você precisa importar os hooks do React que serão usados para gerenciar o estado e efeitos colaterais:
+
+jsx
+Copiar código
+import { useState, useEffect } from "react"; // Importa useState e useEffect
+2. Definição do Hook Customizado
+Você pode criar um hook customizado para encapsular a lógica da requisição HTTP. No exemplo, o hook é chamado useFetch e aceita uma URL como parâmetro:
+
+jsx
+Copiar código
+export const useFetch = (url) => {
+  // Declara um estado para armazenar os dados retornados pela requisição
+  const [data, setData] = useState(null);
+  
+  // Declara um estado para armazenar o valor de loading
+  const [loading, setLoading] = useState(false);
+3. Configuração do useEffect
+O hook useEffect é usado para executar efeitos colaterais, como a realização da requisição HTTP. Ele é configurado para rodar sempre que a URL mudar:
+
+jsx
+Copiar código
+  useEffect(() => {
+    // Função assíncrona para buscar dados da URL
+    const fetchData = async () => {
+      setLoading(true); // Define loading como true para indicar que a requisição está em andamento
+
+      try {
+        // Realiza a requisição HTTP GET
+        const res = await fetch(url);
+
+        // Converte a resposta para JSON
+        const json = await res.json();
+
+        // Atualiza o estado com os dados recebidos
+        setData(json);
+
+        setLoading(false); // Define loading como false para indicar que a requisição foi concluída
+      } catch (error) {
+        // Em caso de erro, exibe uma mensagem de erro no console
+        console.error("Erro ao buscar dados:", error);
+        setLoading(false); // Define loading como false mesmo em caso de erro
+      }
+    };
+
+    fetchData(); // Chama a função fetchData para realizar a busca dos dados
+  }, [url]); // O useEffect será executado novamente se a URL mudar
+4. Retorno do Estado
+O hook retorna os estados data e loading para que possam ser utilizados pelo componente que chama o hook:
+
+jsx
+Copiar código
+  return { data, loading };
+};
+5. Uso do Hook no Componente
+Para usar o hook useFetch em um componente, você deve chamá-lo passando a URL desejada e então utilizar os valores retornados:
+
+jsx
+Copiar código
+import { useFetch } from "./hooks/useFetch"; // Importa o hook customizado
+
+function MyComponent() {
+  const url = "http://localhost:3000/products"; // Define a URL para a requisição
+  const { data: items, loading } = useFetch(url); // Usa o hook para buscar os dados
+
+  return (
+    <div>
+      {loading ? (
+        <p>Carregando....</p> // Exibe mensagem de carregamento enquanto a requisição está em andamento
+      ) : (
+        <div>
+          {items && items.map((product) => (
+            <p key={product.id}>
+              {product.name} - {product.price} {/* Exibe o nome e o preço de cada produto */}
+            </p>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+Resumo
+Importe os hooks necessários (useState e useEffect).
+Crie um hook customizado (useFetch) que faz a requisição HTTP e gerencia o estado de carregamento.
+Utilize o useEffect para disparar a requisição quando o componente é montado ou a URL muda.
+Atualize o estado com os dados recebidos e o status de carregamento.
+Retorne os estados data e loading do hook para serem utilizados no componente.
+Utilize o hook no componente, manipulando o estado de carregamento e exibindo os dados conforme necessário.
+Esses passos fornecem uma visão geral de como configurar e usar requisições HTTP GET em React.
