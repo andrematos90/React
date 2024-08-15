@@ -9,6 +9,9 @@ export const useFetch = (url) => {
   // Declara um estado para armazenar o valor de loading
   const [loading, setLoading] = useState(false);
 
+  //Declara um estado para armanezar um erro caso aconteceça na requisição
+  const [error, setError]=useState(null);
+
   // useEffect é utilizado para executar a função fetchData quando o componente é montado ou a URL muda
   useEffect(() => {
 
@@ -31,7 +34,9 @@ export const useFetch = (url) => {
       } catch (error) {
         // Em caso de erro, exibe uma mensagem de erro no console
         console.error("Erro ao buscar dados:", error);
-        setLoading(false); // Define loading como false mesmo em caso de erro, para parar a indicação de carregamento
+        setLoading(false); // Define loading como false mesmo em caso de erro, para parar a indicação de carregamento.
+
+        setError("Houve um erro na requisição dos dados!") // seta o erro que aconteceu com a mensagem que sera retornanda ao App.js e renderizada na tela
       }
     };
 
@@ -40,5 +45,5 @@ export const useFetch = (url) => {
   }, [url]); // O useEffect será executado novamente se a URL mudar
 
   // Retorna o estado `data` e `loading` para ser utilizado pelo componente que chama o hook
-  return { data, loading };
+  return { data, loading, error };
 };

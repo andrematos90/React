@@ -15,3 +15,17 @@ em package.json em scripts:
 
 
   para rodar comando: npm run server
+
+
+
+PARA CONFIGURAR E RODAR NO VITE 
+
+
+"scripts": {
+  "dev": "vite",
+  "start:json-server": "json-server --watch db.json --port 5000"
+}
+
+
+comamndo: npm run start:json-server
+

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useFetch } from "./hooks/useFetch";
 
 function App() {
-  const url = "http://localhost:3000/products"; // Define a URL da API para onde a requisição será feita
+  const url = "http://localhost:5000/products"; // Define a URL da API para onde a requisição será feita
 
   // Estados locais para os valores de 'name' e 'price'
   const [name, setName] = useState("");
