@@ -2,3 +2,54 @@
 - "BrowserRouter: Define onde a área do nosso app que vai trocar as páginas;
 - Routes: Define as rotas;
 - Route: um elemento deste para cada rota, configurar com path e componente da rota;
+
+
+Passo 1: Instalar o React Router
+No terminal, dentro da pasta do projeto, instale o pacote react-router-dom:
+
+comando: npm install react-router-dom
+
+Passo 2: Configurar o React Router
+Abra o projeto em seu editor de código (por exemplo, VS Code).
+
+
+
+2.1: Configurar o roteamento básico
+No arquivo src/index.js, importe o BrowserRouter de react-router-dom e envolva o componente <App /> com ele.
+
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+
+2.2: Criar as rotas
+No arquivo src/App.js, importe os componentes necessários do react-router-dom e configure as rotas usando <Routes> e <Route>.
+
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import NotFound from './pages/NotFound';
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+}
+
+
+

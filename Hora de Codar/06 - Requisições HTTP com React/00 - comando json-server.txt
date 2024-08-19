@@ -14,7 +14,7 @@ em package.json em scripts:
   },
 
 
-  para rodar comando: npm run server
+  comando para rodar: npm run server
 
 
 
@@ -27,5 +27,5 @@ PARA CONFIGURAR E RODAR NO VITE
 }
 
 
-comamndo: npm run start:json-server
+comamndo para rodar: npm run start:json-server
 
