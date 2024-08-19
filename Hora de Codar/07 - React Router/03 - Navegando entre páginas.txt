@@ -1,2 +1,123 @@
 - Para criar links paras as páginas vamos precisar utilizar o Link do React Router;
 - No link configuramos o parâmetro to, que recebe a URL/path que será redirecionado quando clicar no link;
+
+
+
+A navegação entre páginas no React Router com o componente Link funciona de maneira semelhante a um link HTML, mas de forma otimizada para aplicações SPA (Single Page Application). O Link evita recarregar a página inteira e apenas altera o conteúdo da página atual. Aqui está o passo a passo de como isso funciona:
+
+Passo 1: Importar o componente Link
+Para começar a usar o Link, você precisa importá-lo de react-router-dom no arquivo onde deseja utilizá-lo.
+
+
+import { Link } from 'react-router-dom';
+
+Passo 2: Criar um Menu de Navegação
+Em vez de usar tags <a> para links, use o componente <Link>. Isso permite a navegação sem recarregar a página.
+
+Exemplo:
+Vamos criar um componente de menu de navegação que contém links para diferentes rotas.
+
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+function Navbar() {
+  return (
+    <nav>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">About</Link></li>
+      </ul>
+    </nav>
+  );
+}
+
+export default Navbar;
+
+Passo 3: Entender o funcionamento do Link
+O componente Link substitui a tag <a> e utiliza a prop to em vez de href. A prop to define para qual rota o React Router deve navegar.
+
+Explicação do código:
+
+<li><Link to="/">Home</Link></li>
+<li><Link to="/about">About</Link></li>
+<Link>: Este componente cria um link que, ao ser clicado, muda a URL sem recarregar a página.
+to="/": Define a rota para onde o link deve direcionar. No caso, "/" leva à página Home, e "/about" leva à página About.
+
+
+
+Passo 4: Navegar entre as páginas
+Quando o usuário clica em um link criado com <Link>, o React Router:
+
+Muda a URL no navegador: A URL é atualizada para refletir a rota correspondente, mas sem recarregar a página.
+Renderiza o componente correspondente: O React Router compara a nova URL com as rotas definidas e renderiza o componente que corresponde àquela rota.
+Por exemplo, se o usuário clica no link "About" (<Link to="/about">), o React Router identifica que a URL mudou para /about e renderiza o componente About.
+Mantém o estado da aplicação: Como não há recarregamento de página, o estado da aplicação é mantido. Isso significa que qualquer dado armazenado no estado do React não será perdido.
+
+
+Passo 5: Testar a Navegação
+
+Execute o projeto com o comando npm start e acesse http://localhost:3000/. Você verá o menu de navegação no topo da página. Ao clicar nos links, a URL mudará e o conteúdo da página será atualizado conforme a rota selecionada, sem que a página inteira seja recarregada.
+
+
+Passo 6: Diferenciar o Link de um <a>
+
+Uma diferença importante é que o <Link> do React Router não recarrega a página, o que é ideal para SPAs, garantindo uma navegação mais rápida e suave. Já a tag <a> força o navegador a recarregar a página inteira, o que pode interromper a experiência do usuário em aplicações React.
+
+
+
+Exemplo completo:
+Aqui está um exemplo completo de uma aplicação React com navegação usando Link:
+
+
+// src/App.js
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import NotFound from './pages/NotFound';
+import Navbar from './components/Navbar';
+
+function App() {
+  return (
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
+  );
+}
+
+export default App;
+
+// src/components/Navbar.js
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+function Navbar() {
+  return (
+    <nav>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">About</Link></li>
+      </ul>
+    </nav>
+  );
+}
+
+export default Navbar;
+Agora, quando o usuário clicar em "Home" ou "About" no menu de navegação, a URL mudará, e o React Router carregará o conteúdo correspondente sem recarregar a página inteira.
+
+
+Fluxo resumido:
+Usuário clica no link "Home":
+O <Link to="/"> faz a navegação para a rota '/' sem recarregar a página.
+React Router verifica as rotas definidas:
+Ele encontra a rota <Route path='/' element={<Home />} e renderiza o componente Home.
+Então, sim! O <Link to="/">Home</Link> é a forma de "chamar" ou acessar o componente <Route path='/' element={<Home />} ao clicar no link.
+
+Este é o básico de como o Link funciona para navegação entre páginas no React!
+
