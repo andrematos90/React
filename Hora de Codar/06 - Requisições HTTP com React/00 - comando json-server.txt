@@ -18,7 +18,7 @@ em package.json em scripts:
 
 
 
-PARA CONFIGURAR E RODAR NO VITE 
+PARA CONFIGURAR E RODAR NO VITE  em package.json:
 
 
 "scripts": {
