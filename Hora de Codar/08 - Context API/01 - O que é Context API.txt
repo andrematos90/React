@@ -1,5 +1,5 @@
 - Um recurso que facilita o compartilhhamento de um estado entre componentes;
-- Ou seja, quando precisamo de dados "globais, provavelmente precisamos utilizar o Context;
+- Ou seja, quando precisamos de dados "globais, provavelmente precisamos utilizar o Context;
 - O Context precisa encapsular os componentes que receberão seus valores, geralmente colocamos no App.js ou index.js;
 - Os contextos geralmente ficam na pasta context;
 
@@ -113,7 +113,9 @@ const App = () => (
 );
 
 ReactDOM.render(<App />, document.getElementById('root'));
+
 Benefícios da Context API
+
 Centralização do Estado: Permite centralizar estados e dados que precisam ser compartilhados por múltiplos componentes.
 Evita Prop Drilling: Facilita o compartilhamento de dados sem a necessidade de passar props manualmente em vários níveis da árvore de componentes.
 Facilidade de Uso: É simples de implementar e entender.

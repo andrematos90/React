@@ -1,0 +1,48 @@
+No React, um provider é um componente que faz parte do contexto (ou "Context API"), que foi introduzido na versão 16.3. O Provider é usado para fornecer valores a todos os componentes filhos dentro de sua árvore de componentes, sem a necessidade de passar esses valores manualmente através de props em cada nível da árvore.
+
+Context API
+A Context API permite que você compartilhe dados entre componentes sem precisar passar props manualmente em cada nível, o que é especialmente útil em casos onde você tem valores globais como temas, configurações de idioma, ou dados de usuário autenticado.
+
+Como funciona o Provider
+Criação de um Contexto: Primeiro, você cria um contexto usando React.createContext(). Esse contexto cria dois componentes principais: o Provider e o Consumer.
+
+Uso do Provider: O Provider é um componente que envolve a árvore de componentes que você deseja que tenha acesso aos dados globais. Ele aceita uma prop chamada value, que é o valor que será acessível para todos os componentes filhos que consomem o contexto.
+
+Exemplo Simples:
+
+import React, { createContext, useState } from 'react';
+
+// Cria o contexto
+const MyContext = createContext();
+
+const MyProvider = ({ children }) => {
+  const [value, setValue] = useState("Hello, World!");
+
+  return (
+    <MyContext.Provider value={{ value, setValue }}>
+      {children}
+    </MyContext.Provider>
+  );
+};
+
+const MyComponent = () => {
+  return (
+    <MyProvider>
+      <ChildComponent />
+    </MyProvider>
+  );
+};
+
+const ChildComponent = () => {
+  const { value } = React.useContext(MyContext);
+  return <div>{value}</div>;
+};
+
+export default MyComponent;
+Neste exemplo, o valor "Hello, World!" é fornecido pelo MyProvider e acessado pelo ChildComponent usando o hook useContext. O ChildComponent não precisa receber value como prop diretamente, pois ele já está disponível no contexto.
+
+Vantagens
+Desacoplamento: Com o Provider, você pode evitar passar props através de vários níveis de componentes, simplificando o código.
+Reuso: O mesmo contexto pode ser usado em diferentes partes da aplicação, promovendo o reuso de código.
+Manutenção: Facilita a manutenção de código, especialmente em aplicações grandes onde muitos componentes precisam acessar o mesmo dado.
+Em resumo, um Provider no React é uma maneira poderosa de gerenciar e compartilhar estado ou dados de forma eficiente entre vários componentes em uma aplicação.
