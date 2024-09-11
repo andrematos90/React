@@ -1,8 +1,10 @@
 //css
+
 import styles from "./Register.module.css";
 
 //hooks
 import { useState, useEffect } from "react";
+import useAuthentication from "../../hooks/useAuthentication";
 
 const Register = () => {
 
@@ -12,7 +14,9 @@ const Register = () => {
   const [confirmPassword,setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit =  (e) => {
+  const {createUser, error:AuthError, loading} = useAuthentication();
+
+  const handleSubmit = async (e) => {
   e.preventDefault();
 
   setError("");
@@ -30,7 +34,10 @@ const Register = () => {
     return
   }
 
-  console.log(user);
+  const res = await createUser(user);
+
+  console.log(res);
+
 
   }
 
@@ -79,8 +86,10 @@ const Register = () => {
           placeholder="Confirme a senha"
           onChange={(e)=>{setConfirmPassword(e.target.value)}} />
         </label>
-        <button className="btn">Cadastrar</button>
+        {!loading && <button className="btn">Cadastrar</button>}
+        {loading && <button className="btn" disabled>Aguarde</button>}
         {error && <p className="error">{error}</p>}
+        {AuthError && <p className="error">{AuthError}</p>}
       </form>
     </div>
   );
