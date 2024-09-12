@@ -10,7 +10,7 @@ import {
 
 import { useState, useEffect } from 'react';
 
-const useAuthentication = () => {
+export const useAuthentication = () => {
 
  const [error,setError]=useState(null);
  const [loading,setLoading]=useState(null);
@@ -86,7 +86,5 @@ const useAuthentication = () => {
     
  };
 
-}
-
-export default useAuthentication;
+};
 
