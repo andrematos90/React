@@ -1,10 +1,7 @@
 //css
 import styles from './Login.module.css'
-
-
 //hooks
 import { useState, useEffect } from "react";
-
 import { useAuthentication } from "../../hooks/useAuthentication"
 
 
@@ -15,7 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const {createUser, error:AuthError, loading} = useAuthentication();
+  const {login, error:AuthError, loading} = useAuthentication();
 
   const handleSubmit = async (e) => {
   e.preventDefault();
@@ -24,14 +21,13 @@ const Login = () => {
 
   const user = {
 
-    displayName,
     email,
     password
   }
 
   
 
-  const res = await createUser(user);
+  const res = await login(user);
 
   console.log(res);
 
