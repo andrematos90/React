@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 
+
 const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -18,6 +19,8 @@ const CreatePost = () => {
 
  const{insertDocument, response} = useInsertDocument("posts");
 
+ const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormError("");
@@ -28,11 +31,13 @@ const CreatePost = () => {
       
     } catch (error) {
       setFormError("A imagem precisa ser uma URL")
+      return;
     }
 
 
 
     //criar array de tags
+    const tagsArray = tags.split(",").map((tag)=> tag.trim().toLowerCase());
 
 
 
@@ -48,14 +53,16 @@ const CreatePost = () => {
       title,
       image,
       body,
-      tags,
+      tagsArray,
       uid: user.uid,
       createdBy: user.displayName
     })
 
     console.log(user.uid, user.displayName)
 
+
     // redirectate homepage
+    navigate("/");
 
 
 
