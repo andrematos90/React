@@ -5,16 +5,49 @@ import styles from "./CreatePost.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
+import { useInsertDocument } from "../../hooks/useInsertDocument";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [imagem, setImage] = useState("");
+  const [image, setImage] = useState("");
   const [tags, setTags] = useState([]);
   const [formError, setFormError] = useState("");
 
+  const{user} = useAuthValue();
+
+ const{insertDocument, response} = useInsertDocument("posts");
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    setFormError("");
+
+    //validadte imagem URL
+
+
+
+    //criar array de tags
+
+
+
+    //checar todos os valores
+
+
+    insertDocument({
+      title,
+      image,
+      body,
+      tags,
+      uid: user.uid,
+      createdBy: user.displayName
+    })
+
+    console.log(user.uid, user.displayName)
+
+    // redirectate homepage
+
+
+
   };
 
   return (
@@ -30,7 +63,7 @@ const CreatePost = () => {
             name="title"
             required
             placeholder="Pense em um bom título.."
-            onChange={() => setTitle(e.target.value)}
+            onChange={(e) => setTitle(e.target.value)}
           />
         </label>
 
@@ -41,7 +74,7 @@ const CreatePost = () => {
             name="body"
             required
             placeholder="O que você quer compartilhar.."
-            onChange={() => setBody(e.target.value)}
+            onChange={(e) => setBody(e.target.value)}
           />
         </label>
 
@@ -52,7 +85,7 @@ const CreatePost = () => {
             name="image"
             required
             placeholder="URL da imagem.."
-            onChange={() => setImagem(e.target.value)}
+            onChange={(e) => setImage(e.target.value)}
           />
         </label>
 
@@ -63,11 +96,13 @@ const CreatePost = () => {
             name="tags"
             required
             placeholder="Adicione tags (separdas por virgulas).."
-            onChange={() => setTags(e.target.value)}
+            onChange={(e) => setTags(e.target.value)}
           />
         </label>
 
-        {!loading && <button className="btn">Cadastrar</button>}
+        {!response.loading && <button className="btn">Cadastrar</button>}
+        {response.loading && <button className="btn" disabled>Aguarde</button>}
+        {response.error && <p className="error">{response.error}</p>}
        
       </form>
     </div>
