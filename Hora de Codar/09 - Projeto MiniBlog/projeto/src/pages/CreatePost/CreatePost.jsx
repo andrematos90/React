@@ -23,6 +23,12 @@ const CreatePost = () => {
     setFormError("");
 
     //validadte imagem URL
+    try {
+      new URL(image)
+      
+    } catch (error) {
+      setFormError("A imagem precisa ser uma URL")
+    }
 
 
 
@@ -31,6 +37,11 @@ const CreatePost = () => {
 
 
     //checar todos os valores
+    if (!title || !image || !tags || !body) {
+      setFormError("Por favor, preencha todos os campos!");
+    }
+
+    if(formError) return;
 
 
     insertDocument({
@@ -101,8 +112,9 @@ const CreatePost = () => {
         </label>
 
         {!response.loading && <button className="btn">Cadastrar</button>}
-        {response.loading && <button className="btn" disabled>Aguarde</button>}
+        {response.loading && <button className="btn" disabled>Aguarde..</button>}
         {response.error && <p className="error">{response.error}</p>}
+        {formError && <p className="error">{formError}</p>}
        
       </form>
     </div>
