@@ -23,6 +23,7 @@ import Dashboard from "./pages/Dashboard/Dashboard"
 //components
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
+import Search from "./components/search/Search"
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
               <Route path="/register" element={ !user? <Register /> : <Navigate to='/' />} />
               <Route path="/dashboard" element={user ? <Dashboard/> : <Navigate to ='/login' />}/>
               <Route path="/posts/create" element={user ? <CreatePost/> : <Navigate to='/login' />}/>
+              <Route path="/search" element={<Search/>}/>
             </Routes>
           </div>
           <Footer />
