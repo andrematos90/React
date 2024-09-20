@@ -10,37 +10,44 @@ import PostDetails from "../../components/postDetails/PostDetails";
 //components
 
 const Home = () => {
-  const [query, setQuery] = useState("");
-  const {documents: posts, loading} = useFetchDocuments("posts")
+  const { documents: posts, loading } = useFetchDocuments("posts");
 
   const navigate = useNavigate();
+
+  const [query, setQuery] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if(query){
-      return navigate(`/search?q=${query}`)
+    if (query) {
+      return navigate(`/search?q=${query}`);
     }
   };
 
+  console.log(loading);
+
   return (
     <div className={styles.home}>
-      <h1>Veja nossos posts mais recentes</h1>
-
-      <form onSubmit={handleSubmit} className={styles.search_form}>
-        <input type="text" placeholder="Ou busque por tags..." />
-        <button className="btn btn-dark" onSubmit={(e) => setQuery(e.target.value)}> Pesquisar... </button>
+      <h1>Veja os nossos posts mais recentes</h1>
+      <form className={styles.search_form} onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Ou busque por tags..."
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button className="btn btn-dark">Pesquisar</button>
       </form>
-      <div>
-        {loading && <p>Carregando ....</p>}
-        {posts && posts.map((post) => <PostDetails key={post.id} post={post}/>
-        )}
+      <div className="post-list">
+        {loading && <p>Carregando...</p>}
         {posts && posts.length === 0 && (
-          <div className={styles.nooposts}>
+          <div className={styles.noposts}>
             <p>Não foram encontrados posts</p>
-            <Link to='/posts/create' className="btn">Criar primeiro post</Link>
-            </div>
+            <Link to="/posts/create" className="btn">
+              Criar primeiro post
+            </Link>
+          </div>
         )}
+        {posts && posts.map((post) => <PostDetail key={post.id} post={post} />)}
       </div>
     </div>
   );
